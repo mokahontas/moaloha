@@ -11,6 +11,10 @@ class MissingPeopleController < ApplicationController
     end
   end
 
+  def search
+    @missing_people = MissingPerson.search(["name LIKE ?","%#{params[:search]}%"])
+  end
+
   # GET /missing_people/1
   # GET /missing_people/1.json
   def show

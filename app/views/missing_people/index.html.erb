@@ -1,9 +1,18 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Missing People</h1>
+<h1>Missing Person Database for Hawaii</h1>
+<%= form_tag missing_people_path, :method => 'get' do %>
+
+<%= text_field_tag :search, params[:search] %>
+<p>
+
+</p>
+
+<%= submit_tag "Search" %>
+<% end %>
+
 <div class="row">
    <div class="one-half column">
-     <span>
+     <span class="block">
      <% @missing_people.each do |missing_person| %>
      <%= image_tag(missing_person.image, height: '200', width: '200') %>
 
@@ -19,9 +28,10 @@
      <% end %>
      </span>
    </div>
+
    <div class="one-half column">
      <div style='width: 800px;'>
-      <div id="map" style='width: 36.7vw; height: 50vh;'></div>
+      <div id="map"></div>
       </div>
       <script>
               var mapOptions = {

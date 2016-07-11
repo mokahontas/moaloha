@@ -6,11 +6,10 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     if @current_user.present? && @current_user.admin == true
-  @users = User.all
+      @users = User.all
     else
       redirect_to pages_path
     end
-
   end
 
   # GET /users/1
@@ -64,7 +63,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -90,5 +89,5 @@ class UsersController < ApplicationController
     end
     def authorise
     redirect_to login_path unless session[:user_id].present? && @current_user.admin?
-  `end
+  end
 end
