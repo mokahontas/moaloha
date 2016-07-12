@@ -4,7 +4,9 @@ class MissingPeopleController < ApplicationController
   # GET /missing_people
   # GET /missing_people.json
   def index
-    @missing_people = MissingPerson.all
+    @missing_people = MissingPerson.where("missing_people.date IS NOT NULL").order(date: :desc).paginate(:page => params[:page], :per_page => 10)
+    # @missing_people_without_date = MissingPerson.where( date: nil ).order(date: :asc).paginate(:page => params[:page], :per_page => 10)
+
     @hash = Gmaps4rails.build_markers(@missing_people) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
@@ -19,6 +21,10 @@ class MissingPeopleController < ApplicationController
   # GET /missing_people/1.json
   def show
     @missing_person = MissingPerson.find params[:id]
+    @hash = Gmaps4rails.build_markers(@missing_person) do |location, marker|
+      marker.lat location.latitude
+      marker.lng location.longitude
+    end
   end
 
   # GET /missing_people/new

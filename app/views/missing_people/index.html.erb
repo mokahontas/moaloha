@@ -1,51 +1,59 @@
+<div class="eleven columns" id="search">
+  <h1>Missing Person Database for Hawaii</h1>
+  <%= form_tag missing_people_path, :method => 'get' do %>
 
-<h1>Missing Person Database for Hawaii</h1>
-<%= form_tag missing_people_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <p>
 
-<%= text_field_tag :search, params[:search] %>
-<p>
+  </p>
 
-</p>
-
-<%= submit_tag "Search" %>
-<% end %>
-
+  <%= submit_tag "Search" %>
+  <% end %>
+</div>
 <div class="row">
+
    <div class="one-half column">
-     <span class="block">
+     <div class="info">
+
      <% @missing_people.each do |missing_person| %>
-     <%= image_tag(missing_person.image, height: '200', width: '200') %>
-
+     <span class="block list">
+     <%= image_tag(missing_person.image, class: 'indeximage') %>
      <ul>
-       <li><%= missing_person.first_name %><%= missing_person.last_name %></li>
-
+       <li> <%= missing_person.first_name %> <%= missing_person.last_name %> </li>
+       <li>Date last seen: <%= missing_person.date %></li>
+       <li>Location last seen: <%= missing_person.location %></li>
        <li><%= missing_person.sex %></li>
        <li><%= missing_person.age %></li>
      </ul>
+     <%= link_to 'Show', missing_person_path(missing_person) %>
      <% if @current_user.present? && @current_user.admin == true%>
      <%= link_to 'Edit', edit_missing_person_path(missing_person) %>
      <% end %>
-     <% end %>
      </span>
+     <% end %>
+     <%= will %>
    </div>
+</div>
+   <div class="one-half column" id="indexmap">
 
-   <div class="one-half column">
-     <div style='width: 800px;'>
-      <div id="map"></div>
+
+      <div id="map">
+        <script>
+                var mapOptions = {
+                center: new google.maps.LatLng(20.8027683, -157.618187),
+                zoom: 7
+                };
+
+                var handler = Gmaps.build('Google');
+                handler.buildMap({ provider: mapOptions, internal: {id: 'map' }}, function(){
+                markers = handler.addMarkers(<%=raw @hash.to_json %>)
+
+                });
+
+        </script>
       </div>
-      <script>
-              var mapOptions = {
-              center: new google.maps.LatLng(20.8027683, -157.618187),
-              zoom: 7
-              };
 
-              var handler = Gmaps.build('Google');
-              handler.buildMap({ provider: mapOptions, internal: {id: 'map' }}, function(){
-              markers = handler.addMarkers(<%=raw @hash.to_json %>)
 
-              });
-
-      </script>
    </div>
  </div>
 <!-- <table>

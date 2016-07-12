@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'pry-rails'
 gem 'will_paginate'
+gem 'nokogiri'
 # Use postgresql as the database for Active Record
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
