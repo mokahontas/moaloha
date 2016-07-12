@@ -34,12 +34,11 @@
 <div class="container">
   <div class="navbar">
     <!-- <%= image_tag("moalohalogo.png", class: "headerimg") %> -->
-    <%= link_to 'Home', pages_path %>
-    <a href="#">Resources</a>
-    <%= link_to 'Missing Person Database', missing_people_path %>
-    <%= link_to 'Social', social_path %>
-    <a href="#">Contact</a>
-
+    <button type="button" name="button"><%= link_to 'Home', pages_path %></button>
+    <button type="button" name="button"><%= link_to 'Resources', resources_path %></button>
+    <button type="button" name="button"><%= link_to 'Missing Person Database', missing_people_path %></button>
+    <button type="button" name="button"><%= link_to 'Social', social_path %></button>
+    <button type="button" name="button"><a href="#">Contact</a></button>
   </div>
 
   <%= yield %>
@@ -59,7 +58,6 @@
   <% else %>
   <%= link_to 'Admin', login_path %>
   <% end %>
-  
 </footer>
 </div>
 </body>

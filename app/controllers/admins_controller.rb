@@ -5,6 +5,7 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
+    @missing_people = MissingPerson.all
   end
 
   # GET /admins/1
@@ -19,6 +20,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
+    @missing_person = MissingPerson.find params[:id]
   end
 
   # POST /admins
@@ -30,9 +32,28 @@ class AdminsController < ApplicationController
       if @admin.save
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
         format.json { render :show, status: :created, location: @admin }
+        format.js
+
       else
         format.html { render :new }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.js
+
+      end
+    end
+    @missing_person = MissingPerson.new(missing_person_params)
+
+    respond_to do |format|
+      if @missing_person.save
+        format.html { redirect_to @missing_person, notice: 'Missing person was successfully created.' }
+        format.json { render :show, status: :created, location: @missing_person }
+        format.js
+
+      else
+        format.html { render :new }
+        format.json { render json: @missing_person.errors, status: :unprocessable_entity }
+        format.js
+
       end
     end
   end
@@ -44,9 +65,26 @@ class AdminsController < ApplicationController
       if @admin.update(admin_params)
         format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin }
+        format.js
+
       else
         format.html { render :edit }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.js
+
+      end
+    end
+    respond_to do |format|
+      if @missing_person.update(missing_person_params)
+        format.html { redirect_to @missing_person, notice: 'Missing person was successfully updated.' }
+        format.json { render :show, status: :ok, location: @missing_person }
+        format.js
+
+      else
+        format.html { render :edit }
+        format.json { render json: @missing_person.errors, status: :unprocessable_entity }
+        format.js
+
       end
     end
   end
@@ -58,7 +96,17 @@ class AdminsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
+
     end
+    @missing_person.destroy
+    respond_to do |format|
+      format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
+      format.json { head :no_content }
+      format.js
+
+    end
+
   end
 
   private
@@ -78,6 +126,7 @@ class AdminsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def set_missing_person
       @missing_person = MissingPerson.find(params[:id])
+      @missing_people = MissingPerson.all
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def missing_person_params

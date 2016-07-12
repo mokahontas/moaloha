@@ -49,17 +49,7 @@ class MissingPeopleController < ApplicationController
   def create
     if @current_user.present? && @current_user.admin == true
 
-    @missing_person = MissingPerson.new(missing_person_params)
 
-    respond_to do |format|
-      if @missing_person.save
-        format.html { redirect_to @missing_person, notice: 'Missing person was successfully created.' }
-        format.json { render :show, status: :created, location: @missing_person }
-      else
-        format.html { render :new }
-        format.json { render json: @missing_person.errors, status: :unprocessable_entity }
-      end
-    end
   end
 end
 

@@ -27,15 +27,16 @@
 // font-family: 'Kaushan Script', cursive;
 // font-family: 'Courgette', cursive;
 body {
-  background-color: #a3a1a1;
+  // background-color: #a3a1a1;
+  background-image: url('background.jpg');
   width: 100%;
   font-family: 'Amatic SC', cursive;
   font-size: 25px;
 
 }
 .container {
-  background-color: #ffbbd6;
-  opacity: 0.8;
+  // background-color: #ffbbd6;
+
   border-radius: 5px 5px 5px 5px;
   position: absolute;
   margin: inherit;
@@ -49,6 +50,7 @@ body {
   box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
   margin: inherit;
   padding: auto;
+  opacity: 0.8;
 
 }
 footer {
@@ -58,7 +60,9 @@ footer {
   text-align: center;
   background-color: #dedcee;
   border-radius: 5px 5px 5px 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
   margin: inherit;
+  opacity: 0.8;
 
 }
 #search {

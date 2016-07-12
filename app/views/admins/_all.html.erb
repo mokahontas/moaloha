@@ -1,0 +1,6 @@
+<% @missing_people.each, remote: true do |missing_person| %>
+  <span class="field">
+    <%= missing_person.first_name %> <%= missing_person.last_name %><br />
+  </span>
+
+<% end %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/social' => 'pages#social'
   get '/fixdata' => 'missing_people#fixdata'
+  get '/resources' => 'pages#resources'
     resources :users
     resources :pages
     resources :missing_people

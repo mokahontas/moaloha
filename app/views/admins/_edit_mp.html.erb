@@ -1,0 +1,89 @@
+<%= form_for(@missing_person), remote: true do |f| %>
+  <% if @missing_person.errors.any? %>
+    <span id="error_explanation">
+      <h2><%= pluralize(@missing_person.errors.count, "error") %> prohibited this missing_person from being saved:</h2>
+
+      <ul>
+      <% @missing_person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </span>
+  <% end %>
+
+  <span class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %><br />
+  </span>
+  <span class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %><br />
+  </span>
+  <span class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %><br />
+  </span>
+  <span class="field">
+    <%= f.label :location %><br />
+    <%= f.text_area :location %><br />
+  </span>
+  <span class="field">
+    <%= f.label :island %><br />
+    <%= f.text_field :island %><br />
+  </span>
+  <span class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height %><br />
+  </span>
+  <span class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %><br />
+  </span>
+  <span class="field">
+    <%= f.label :image %><br />
+    <%= f.text_area :image %><br />
+  </span>
+  <span class="field">
+    <%= f.label :eye_color %><br />
+    <%= f.text_field :eye_color %>
+  </span>
+  <span class="field">
+    <%= f.label :information %><br />
+    <%= f.text_area :information %><br />
+  </span>
+  <span class="field">
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %><br />
+  </span>
+  <span class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %><br />
+  </span>
+  <span class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %><br />
+  </span>
+  <span class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %><br />
+  </span>
+  <span class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %><br />
+  </span>
+  <span class="field">
+    <%= f.label :ethnicity %><br />
+    <%= f.text_field :ethnicity %><br />
+  </span>
+  <span class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age %><br />
+  </span>
+  <span class="field">
+    <%= f.label :circumstances %><br />
+    <%= f.text_area :circumstances %><br />
+  </span>
+  <span class="actions">
+    <%= f.submit %>
+  </span>
+<% end %>
