@@ -1,6 +1,32 @@
-<h1>Editing Missing Person</h1>
+<!-- <h1>Editing Missing Person</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @missing_person %> |
-<%= link_to 'Back', missing_people_path %>
+<%= link_to 'Back', missing_people_path %> -->
+<div class="row">
+  <div class="three columns">
+    <%= link_to 'New User', new_user_path %>
+    <%= link_to 'All Users', users_path %>
+    <%= link_to "Add missing person", new_missing_person_path %>
+  </div>
+
+<div class="five colmuns">
+<%= form_for(@missing_people, remote: true) do |f| %>
+<span class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %><br />
+</span>
+<span class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %><br />
+</span>
+<span class="field">
+  <%= f.label :circumstances %><br />
+  <%= f.text_area :circumstances %><br />
+</span>
+<% end %>
+</div>
+
+
+</div>

@@ -59,11 +59,7 @@
   <% else %>
   <%= link_to 'Admin', login_path %>
   <% end %>
-  <% if @current_user.present? && @current_user.admin == true%>
-    <%= link_to 'New User', new_user_path %>
-    <%= link_to 'All Users', users_path %>
-    <%= link_to "Add missing person", new_missing_person_path %>
-    <% end %>
+  
 </footer>
 </div>
 </body>

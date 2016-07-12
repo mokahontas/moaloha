@@ -26,12 +26,9 @@
        <li><%= missing_person.age %></li>
      </ul>
      <%= link_to 'Show', missing_person_path(missing_person) %>
-     <% if @current_user.present? && @current_user.admin == true%>
-     <%= link_to 'Edit', edit_missing_person_path(missing_person) %>
-     <% end %>
      </span>
      <% end %>
-     <%= will %>
+     <%= will_paginate @missing_people %>
    </div>
 </div>
    <div class="one-half column" id="indexmap">

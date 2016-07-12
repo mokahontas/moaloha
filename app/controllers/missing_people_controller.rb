@@ -5,12 +5,14 @@ class MissingPeopleController < ApplicationController
   # GET /missing_people.json
   def index
     @missing_people = MissingPerson.where("missing_people.date IS NOT NULL").order(date: :desc).paginate(:page => params[:page], :per_page => 10)
-    # @missing_people_without_date = MissingPerson.where( date: nil ).order(date: :asc).paginate(:page => params[:page], :per_page => 10)
-
     @hash = Gmaps4rails.build_markers(@missing_people) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
     end
+  end
+  def fixdata
+    @missing_people_without_date = MissingPerson.where( date: nil ).paginate(:page => params[:page], :per_page => 10)
+
   end
 
   def search

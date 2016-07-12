@@ -1,0 +1,16 @@
+<% @missing_people_without_date.each do |p| %>
+ <span class="block list">
+   <%= image_tag(p.image, class: 'indeximage') %>
+   <ul>
+     <li> <%= p.first_name %> <%= p.last_name %> </li>
+     <li>Location last seen: <%= p.location %></li>
+     <li><%= p.sex %></li>
+     <li><%= p.age %></li>
+   </ul>
+   <%= link_to 'Show', missing_person_path(p) %>
+   <% if @current_user.present? && @current_user.admin == true%>
+   <%= link_to 'Edit', edit_missing_person_path(p) %>
+   <% end %>
+   </span>
+<% end %>
+<%= will_paginate @missing_people_without_date %>
