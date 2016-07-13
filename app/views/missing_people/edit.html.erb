@@ -9,9 +9,9 @@
 <div class="five colmuns">
   <%= link_to 'Prev', missing_person_path(@prev) %>
 
-<%= form_for(@missing_person) do |f| %>
-<%= render 'form' %>
-<% end %>
-<%= link_to 'Next', missing_person_path(@next) %>
+  <%= form_for(@missing_person) do |f| %>
+  <%= render 'form' %>
+  <% end %>
+  <%= link_to 'Next', missing_person_path(@next) %>
 
 </div>

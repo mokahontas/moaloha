@@ -5,7 +5,9 @@
     <%= link_to 'Prev', missing_person_path(@prev) %>
     <%= image_tag(@missing_person.image, class: 'showimage') %>
 <button type="button" name="button">
+  <% if  @current_user.present? %>
     <%= link_to 'Edit', edit_missing_person_path(@missing_person) %>
+    <% end %>
 </button>
     <div id="map">
       <script>
