@@ -5,9 +5,15 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
-    @missing_people = MissingPerson.all
+    @missing_people = MissingPerson.all.paginate(:page => params[:page], :per_page => 25)
   end
-
+  def all_content
+    @missing_people = MissingPerson.all.paginate(:page => params[:page], :per_page => 25)
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   # GET /admins/1
   # GET /admins/1.json
   def show
@@ -16,8 +22,29 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @missing_person = MissingPerson.new
+  end
+  def new_mp
+    @missing_person = MissingPerson.new
+
+    respond_to do |format|
+      if @missing_person.save
+        format.html { redirect_to @missing_person, notice: 'Missing person was successfully created.' }
+        format.json { render :show, status: :created, location: @missing_person }
+        format.js
+
+      else
+        format.html { render :new }
+        format.json { render json: @missing_person.errors, status: :unprocessable_entity }
+        format.js
+
+      end
+    end
   end
 
+  def fixdata
+    @missing_people_without_date = MissingPerson.where( date: nil ).paginate(:page => params[:page], :per_page => 10)
+  end
   # GET /admins/1/edit
   def edit
     @missing_person = MissingPerson.find params[:id]
@@ -26,6 +53,21 @@ class AdminsController < ApplicationController
   # POST /admins
   # POST /admins.json
   def create
+    @missing_person = MissingPerson.new(missing_person_params)
+
+    respond_to do |format|
+      if @missing_person.save
+        format.html { redirect_to missing_person_path, notice: 'Missing person was successfully created.' }
+        format.json { render :show, status: :created, location: @missing_person }
+        format.js
+
+      else
+        format.html { render :new }
+        format.json { render json: @missing_person.errors, status: :unprocessable_entity }
+        format.js
+
+      end
+    end
     @admin = Admin.new(admin_params)
 
     respond_to do |format|
@@ -37,21 +79,6 @@ class AdminsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
-        format.js
-
-      end
-    end
-    @missing_person = MissingPerson.new(missing_person_params)
-
-    respond_to do |format|
-      if @missing_person.save
-        format.html { redirect_to @missing_person, notice: 'Missing person was successfully created.' }
-        format.json { render :show, status: :created, location: @missing_person }
-        format.js
-
-      else
-        format.html { render :new }
-        format.json { render json: @missing_person.errors, status: :unprocessable_entity }
         format.js
 
       end

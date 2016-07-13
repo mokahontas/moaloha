@@ -1,6 +1,9 @@
-<% @missing_people.each, remote: true do |missing_person| %>
+<div class="eight columns">
+
+<% @missing_people.each do |missing_person| %>
   <span class="field">
-    <%= missing_person.first_name %> <%= missing_person.last_name %><br />
+  <%= link_to "#{missing_person.first_name} #{missing_person.last_name}", missing_person_path(missing_person) %>
   </span>
 
 <% end %>
+</div>

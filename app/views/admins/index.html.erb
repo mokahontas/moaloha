@@ -2,13 +2,14 @@
 
 <div class="row">
   <div class="three columns" id="admin_control">
-    <button type="button" name="button">Edit Missing Person</button>
-    <button type="button" name="button">Add Missing person</button>
-    <button type="button" name="button">Site DAta</button>
+    <button type="button" id="all_content"><%= link_to "Missing People", all_content_path, :remote => true %></button>
+    <button type="button" id="new_mp"><%= link_to "Add a missing person", new_mp_path, :remote => true %></button>
+    <button type="button" name="button">Site Data</button>
     <button type="button" name="button">Location of IP's</button>
     <button type="button" name="button">Message Box</button>
 
   </div>
-  <div class="eight columns" id="data-content">
+  <div id="data_content">
+
   </div>
 </div>

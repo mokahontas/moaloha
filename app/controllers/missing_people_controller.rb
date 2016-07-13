@@ -10,10 +10,7 @@ class MissingPeopleController < ApplicationController
       marker.lng location.longitude
     end
   end
-  def fixdata
-    @missing_people_without_date = MissingPerson.where( date: nil ).paginate(:page => params[:page], :per_page => 10)
-
-  end
+  
 
   def search
     @missing_people = MissingPerson.search(["name LIKE ?","%#{params[:search]}%"])
@@ -60,8 +57,8 @@ end
 
     respond_to do |format|
       if @missing_person.update(missing_person_params)
-        format.html { redirect_to @missing_person, notice: 'Missing person was successfully updated.' }
-        format.json { render :show, status: :ok, location: @missing_person }
+        format.html { redirect_to fixdata_path, notice: 'Missing person was successfully updated.' }
+        format.json { render :fixdata, status: :ok, location: @missing_person }
       else
         format.html { render :edit }
         format.json { render json: @missing_person.errors, status: :unprocessable_entity }
