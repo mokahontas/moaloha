@@ -3,7 +3,9 @@
 <% @missing_people.each do |missing_person| %>
   <span class="field">
   <%= link_to "#{missing_person.first_name} #{missing_person.last_name}", missing_person_path(missing_person) %>
+  <%= missing_person.island %>
   </span>
-  <%= will_paginate @missing_people %>
+
 <% end %>
+<%= will_paginate @missing_people %>
 </div>
