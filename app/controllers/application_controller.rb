@@ -10,3 +10,13 @@ class ApplicationController < ActionController::Base
         session[:user_id] = nil unless @current_user.present?
       end
 end
+#   before_filter :store_history
+#   request.remote_ip
+# private
+#
+#   def store_history
+#     session[:history] ||= []
+#     session[:history].delete_at(0) if session[:history].size >= 5
+#     session[:history] << request.url
+#   end
+# end

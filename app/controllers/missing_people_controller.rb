@@ -11,7 +11,6 @@ class MissingPeopleController < ApplicationController
     end
   end
 
-
   def search
     @missing_people = MissingPerson.search(["name LIKE ?","%#{params[:search]}%"])
   end
@@ -23,35 +22,27 @@ class MissingPeopleController < ApplicationController
     @hash = Gmaps4rails.build_markers(@missing_person) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
+    @prev = MissingPerson.find params[:id].to_i - 1
+    @next = MissingPerson.find params[:id].to_i + 1
+     #
+    #  def prev
+    #    @missing_person.where(+= 1)
+    #  end
     end
+    # @impression = Impression.new(impression_params)
+    # @impression.create(@ip, :missing_person_id)
+    # @impression.save
+
   end
 
-  # GET /missing_people/new
-  def new
-    if @current_user.present? && @current_user.admin == true
-
-    @missing_person = MissingPerson.new
-    end
-  end
-
-  # GET /missing_people/1/edit
   def edit
     if @current_user.present? && @current_user.admin == true
       @missing_person = MissingPerson.find params[:id]
+      @prev = MissingPerson.find params[:id].to_i - 1
+      @next = MissingPerson.find params[:id].to_i + 1
     end
   end
 
-  # POST /missing_people
-  # POST /missing_people.json
-  def create
-    if @current_user.present? && @current_user.admin == true
-
-
-  end
-end
-
-  # PATCH/PUT /missing_people/1
-  # PATCH/PUT /missing_people/1.json
   def update
     if @current_user.present? && @current_user.admin == true
 
@@ -66,7 +57,6 @@ end
     end
   end
 end
-
   # DELETE /missing_people/1
   # DELETE /missing_people/1.json
   def destroy
@@ -81,6 +71,14 @@ end
 end
 
   private
+  def set_ip
+    @ip = request.remote_ip
+  end
+
+    def set_impression
+      @impression = Impression.find(params[:id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_missing_person
       @missing_person = MissingPerson.find(params[:id])
@@ -90,4 +88,5 @@ end
     def missing_person_params
       params.require(:missing_person).permit(:first_name, :last_name, :sex, :location, :island, :height, :weight, :image, :eye_color, :information, :middle_name, :nickname, :date, :longitude, :latitude, :ethnicity, :age, :circumstances)
     end
+
 end

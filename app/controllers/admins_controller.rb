@@ -142,11 +142,7 @@ class AdminsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_admin
-    #   @admin = Admin.find(params[:id])
-    # end
-    # if @current_user.present? && @current_user.admin == true
+    
 
     def fetch_admin
       if @current_user.admin
@@ -155,14 +151,15 @@ class AdminsController < ApplicationController
         redirect_to pages_path
       end
     end
-    # Never trust parameters from the scary internet, only allow the white list through.
     def set_missing_person
       @missing_person = MissingPerson.find(params[:id])
       @missing_people = MissingPerson.all
     end
-    # Never trust parameters from the scary internet, only allow the white list through.
     def missing_person_params
       params.require(:missing_person).permit(:first_name, :last_name, :sex, :location, :island, :height, :weight, :image, :eye_color, :information, :middle_name, :nickname, :date, :longitude, :latitude, :ethnicity, :age, :circumstances)
+    end
+    def set_impression
+      @impression = Impression.find(params[:id])
     end
     def admin_params
       params.fetch(:admin, {})

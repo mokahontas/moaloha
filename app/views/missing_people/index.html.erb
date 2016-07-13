@@ -1,11 +1,17 @@
 <div class="eleven columns" id="search">
   <h1>Missing Person Database for Hawaii</h1>
   <%= form_tag missing_people_path, :method => 'get' do %>
-
+  <h4>Search</h4>
   <%= text_field_tag :search, params[:search] %>
-  <p>
+  <input type="radio" name="sex" value="male"> Male
+  <input type="radio" name="isex" value="Female"> Female</br>
 
-  </p>
+  <input type="checkbox" name="island" value="maui"> Maui
+  <input type="checkbox" name="island" value="oahu"> O'ahu
+  <input type="checkbox" name="island" value="big_island"> Big Island
+  <input type="checkbox" name="island" value="lanai"> Lanai
+  <input type="checkbox" name="island" value="molokai"> Moloka'i
+  <input type="checkbox" name="island" value="kauai"> Kaua'i</br>
 
   <%= submit_tag "Search" %>
   <% end %>
