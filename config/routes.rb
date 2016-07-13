@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy', :as => 'logout'
 
   get '/social' => 'pages#social'
+  get '/pages/first24' => 'pages#firsthours', :as => 'firsthours'
+  get '/pages/missingperson' => 'pages#missingperson', :as => 'missingperson'
 
   get '/admins/fixdata' => 'admins#fixdata', :as => 'fixdata'
   get '/admins/content' => 'admins#all_content', :as => 'all_content'

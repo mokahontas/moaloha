@@ -2,7 +2,7 @@
   <h1>Missing Person Database for Hawaii</h1>
   <%= form_tag missing_people_path, :method => 'get' do %>
   <h4>Search</h4>
-  <%= text_field_tag :search, params[:search] %>
+  <%= text_field_tag 'search', nil, placeholder: "Search by Name" %>
   <input type="radio" name="sex" value="male"> Male
   <input type="radio" name="isex" value="Female"> Female</br>
 

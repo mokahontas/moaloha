@@ -10,7 +10,18 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
   end
-
+  def firsthours
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def missingperson
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   # GET /pages/new
   def new
   end
