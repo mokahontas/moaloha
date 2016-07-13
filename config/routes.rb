@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   get '/social' => 'pages#social'
 
-  get '/fixdata' => 'missing_people#fixdata'
+  get '/admins/fixdata' => 'admins#fixdata', :as => 'fixdata'
   get '/admins/content' => 'admins#all_content', :as => 'all_content'
   get '/admins/new_mp' => 'admins#new_mp', :as => 'new_mp'
   post '/admins/new_mp' => 'admins#create'
-  
+
   get '/resources' => 'pages#resources'
 
     resources :users

@@ -3,6 +3,9 @@
   <div class="showinfo">
 
     <%= image_tag(@missing_person.image, class: 'showimage') %>
+<button type="button" name="button">
+    <%= link_to 'Edit', edit_missing_person_path(@missing_person) %>
+</button>
     <div id="map">
       <script>
               var mapOptions = {
@@ -31,7 +34,7 @@
 <strong>Sex: </strong>
   <%= @missing_person.sex %><br />
   <strong>Date last seen: </strong>
-  <%= @missing_person.date %><br />
+  <%= @missing_person.date.strftime("%m/%d/%Y") %><br />
 
   <strong>Location last seen: </strong>
   <%= @missing_person.location %><br />

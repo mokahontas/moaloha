@@ -1,5 +1,9 @@
+<% if @current_user.present? && @current_user.admin == true%>
+<div class="eight columns">
+
+
 <% @missing_people_without_date.each do |p| %>
- <span class="block list">
+ <span class="block">
    <%= image_tag(p.image, class: 'indeximage') %>
    <ul>
      <li> <%= p.first_name %> <%= p.last_name %> </li>
@@ -7,10 +11,13 @@
      <li><%= p.sex %></li>
      <li><%= p.age %></li>
    </ul>
+
    <%= link_to 'Show', missing_person_path(p) %>
-   <% if @current_user.present? && @current_user.admin == true%>
    <%= link_to 'Edit', edit_missing_person_path(p) %>
-   <% end %>
+   <%= link_to 'Destroy', missing_person_path(p), method: :delete, data: { confirm: 'Are you sure?' } %>
+
    </span>
+   <% end %>
 <% end %>
 <%= will_paginate @missing_people_without_date %>
+</div>

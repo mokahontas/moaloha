@@ -51,12 +51,12 @@
     data-width="150"
     data-show-faces="true">
   </div>
+  <button type="button" name="button"><%= link_to 'Admin', admins_path %></button>
+
   <% if  @current_user.present? %>
+<button type="button" name="button">
+  <%= link_to 'Log Out', logout_path, :method => :delete  %></button>
 
-  <%= link_to 'Log Out', logout_path, :method => :delete  %>
-
-  <% else %>
-  <%= link_to 'Admin', login_path %>
   <% end %>
 </footer>
 </div>

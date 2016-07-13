@@ -87,7 +87,7 @@ end
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
     end
-    def authorise
+    def authenticate
     redirect_to login_path unless session[:user_id].present? && @current_user.admin?
   end
 end

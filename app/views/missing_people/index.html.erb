@@ -20,7 +20,7 @@
      <%= image_tag(missing_person.image, class: 'indeximage') %>
      <ul>
        <li> <%= missing_person.first_name %> <%= missing_person.last_name %> </li>
-       <li>Date last seen: <%= missing_person.date %></li>
+       <li>Date last seen: <%= missing_person.date.strftime("%m/%d/%Y") %></li>
        <li>Location last seen: <%= missing_person.location %></li>
        <li><%= missing_person.sex %></li>
        <li><%= missing_person.age %></li>
@@ -53,65 +53,3 @@
 
    </div>
  </div>
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Sex</th>
-      <th>Location</th>
-      <th>Island</th>
-      <th>Height</th>
-      <th>Weight</th>
-      <th>Eye color</th>
-      <th>Information</th>
-      <th>Middle name</th>
-      <th>Nickname</th>
-      <th>Date</th>
-      <th>Ethnicity</th>
-      <th>Age</th>
-      <th>Circumstances</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @missing_people.each do |missing_person| %>
-      <tr>
-        <td><%= image_tag(missing_person.image, height: '200', width: '200') %></td>
-        <td><%= missing_person.first_name %></td>
-        <td><%= missing_person.last_name %></td>
-        <td><%= missing_person.sex %></td>
-        <td><%= missing_person.location %></td>
-        <td><%= missing_person.island %></td>
-        <td><%= missing_person.height %></td>
-        <td><%= missing_person.weight %></td>
-        <td><%= missing_person.eye_color %></td>
-        <td><%= missing_person.information %></td>
-        <td><%= missing_person.middle_name %></td>
-        <td><%= missing_person.nickname %></td>
-        <td><%= missing_person.date %></td>
-        <td><%= missing_person.ethnicity %></td>
-        <td><%= missing_person.age %></td>
-        <td><%= missing_person.circumstances %></td>
-        <% if @current_user.present? && @current_user.admin == true%>
-
-        <td><%= link_to 'Show', missing_person %></td>
-        <td></td>
-        <td><%= link_to 'Destroy', missing_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
-
-<!-- <br>
-<% if @current_user.present? && @current_user.admin == true%>
-
-<%= link_to 'New Missing person', new_missing_person_path %>
-
-<% end %> -->
-<div id="missing-person-data" class="content">
-
-</div>

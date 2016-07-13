@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  before_filter :authenticate
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   # GET /admins
@@ -44,6 +45,10 @@ class AdminsController < ApplicationController
 
   def fixdata
     @missing_people_without_date = MissingPerson.where( date: nil ).paginate(:page => params[:page], :per_page => 10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   # GET /admins/1/edit
   def edit
@@ -161,5 +166,8 @@ class AdminsController < ApplicationController
     end
     def admin_params
       params.fetch(:admin, {})
+    end
+    def authenticate
+    redirect_to login_path unless session[:user_id].present? && @current_user.admin?
     end
 end
