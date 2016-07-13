@@ -4,6 +4,6 @@
   <span class="field">
   <%= link_to "#{missing_person.first_name} #{missing_person.last_name}", missing_person_path(missing_person) %>
   </span>
-
+  <%= will_paginate @missing_people %>
 <% end %>
 </div>

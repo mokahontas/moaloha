@@ -142,7 +142,7 @@ class AdminsController < ApplicationController
   end
 
   private
-    
+
 
     def fetch_admin
       if @current_user.admin
