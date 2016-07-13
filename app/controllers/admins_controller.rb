@@ -6,10 +6,10 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
-    @missing_people = MissingPerson.all.paginate(:page => params[:page], :per_page => 25)
+    @missing_people = MissingPerson.all
   end
   def all_content
-    @missing_people = MissingPerson.all.paginate(:page => params[:page], :per_page => 25)
+    @missing_people = MissingPerson.all
     respond_to do |format|
       format.html
       format.js
