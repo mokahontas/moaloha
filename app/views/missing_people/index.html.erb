@@ -1,10 +1,8 @@
 <div class="twelve columns" id="search">
-  <h1>Missing Person Database for Hawaii</h1>
+  <h2>Missing Person Database for Hawaii</h2>
   <%= form_tag missing_people_path, :method => 'get' do %>
   <h4>Search</h4>
-  <label for="search">Search</label>
   <input type="text" name="name" placeholder: "Search by Name" value=<%= @name %>>
-
   <input type="radio" name="sex" value="Male" <%= @sex == "Male" ? "checked" : ""%>> Male
   <input type="radio" name="sex" value="Female" <%= @sex == "Female" ? "checked" : ""%>> Female</br>
   <input type="checkbox" name="islands[]" value="Maui" <%= @islands == "Maui" ? "checked" : "" %>> Maui
@@ -43,7 +41,7 @@
         <script>
                 var mapOptions = {
                 center: new google.maps.LatLng(20.8027683, -157.618187),
-                zoom: 7
+                zoom:7
                 };
 
                 var handler = Gmaps.build('Google');
