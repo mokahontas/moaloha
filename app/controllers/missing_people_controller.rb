@@ -40,7 +40,7 @@ class MissingPeopleController < ApplicationController
     @next = MissingPerson.find params[:id].to_i + 1
 
     end
-    @impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
+    # @impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
 
   end
 
