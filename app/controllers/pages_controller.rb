@@ -22,6 +22,36 @@ class PagesController < ApplicationController
       format.js
     end
   end
+  def county
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def media
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def sar
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def law_enforcement
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def fed
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   # GET /pages/new
   def new
   end

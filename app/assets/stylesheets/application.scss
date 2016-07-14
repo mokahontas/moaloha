@@ -32,8 +32,29 @@ body {
   width: 100%;
   font-family: 'Amatic SC', cursive;
   font-size: 25px;
+  background-repeat: no-repeat;
+  background-attachment: fixed
 
 }
+button {
+  box-shadow: 1px 1px 2px 0px #ffbbd6;
+  border: 1px solid #ffbbd6;
+}
+a {
+  font-size: 25px;
+  font-family: 'Amatic SC', cursive;
+  text-decoration-color: #333030;
+}
+a:hover {
+    text-decoration: #ffbbd6;
+    opacity: 0.7;
+    width: 100%;
+}
+button a:link, button a:visited, button a:hover, button a:active,  {
+    text-decoration:none;
+}
+
+
 .container {
   // background-color: #ffbbd6;
 
@@ -82,6 +103,15 @@ footer {
 margin: 5px;
 
 }
+.county {
+  background-color: #fffcf0;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  margin: 10px;
+  padding: auto;
+  list-style-type: none;
+  text-align: center;
+}
 .columns {
   border: 3px solid #fffcf0;
   border-radius: 5px 5px 5px 5px;
@@ -117,11 +147,29 @@ margin: 5px;
   margin: inherit;
   padding-bottom: 5px;
 }
+.contact {
+  background-color: #fffcf0;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
+  margin: 10px;
+  padding: auto;
+  display: inline-block;
+  list-style-type: none;
+  text-align: center;
+
+}
 .content {
   background-color: #fffcf0;
   border-radius: 5px 5px 5px 5px;
   margin: inherit;
   padding: inherit;
+  display: inline;
+}
+iframe {
+  padding: inherit;
+  margin: inherit;
+  border-radius: 5px 5px 5px 5px;
+  border: 3px solid #ffbbd6;
 }
 .mainimage {
   border-radius: 5px 5px 5px 5px;

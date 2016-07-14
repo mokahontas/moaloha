@@ -1,10 +1,15 @@
-<div class="three columns">
-  <button type="button" name="button">Law Enforcement</button>
-  <button type="button" name="button">Media</button>
-  <button type="button" name="button">Search and Rescue</button>
-  <button type="button" name="button"></button>
+<div class="row">
 
+
+<div class="three columns">
+  <h3>Contacts</h3>
+  <button type="button" name="button"><%= link_to 'County', county_path, :remote => true %></button>
+  <button type="button" name="button"><%= link_to 'Media', media_path, :remote => true %></button>
+  <button type="button" name="button"><%= link_to 'Search and Rescue', sar_path, :remote => true %></button>
+  <button type="button" name="button"><%= link_to 'Law Enforcement', law_enforcement_path, :remote => true %></button>
+  <button type="button" name="button"><%= link_to 'Coast Guard & DLNR', fed_path, :remote => true %></button>
 </div>
 <div id="contact_content">
 
+</div>
 </div>

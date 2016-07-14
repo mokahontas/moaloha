@@ -1,8 +1,6 @@
 class MissingPeopleController < ApplicationController
   before_action :set_missing_person, only: [:show, :edit, :update, :destroy]
 
-  # GET /missing_people
-  # GET /missing_people.json
   def index
     @name = params[:name]
     @sex = params[:sex]
@@ -38,10 +36,12 @@ class MissingPeopleController < ApplicationController
       marker.lng location.longitude
     @prev = MissingPerson.find params[:id].to_i - 1
     @next = MissingPerson.find params[:id].to_i + 1
+    if @next == nil
+
 
     end
-    # @impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
-
+    @impressions.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
+    # @impressions.save
   end
 
   def edit
@@ -68,14 +68,17 @@ end
   # DELETE /missing_people/1
   # DELETE /missing_people/1.json
   def destroy
-    if @current_user.present? && @current_user.admin == true
-
-    @missing_person.destroy
-    respond_to do |format|
+      @missing_person.destroy
+      respond_to do |format|
       format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
+      end
+      @missing_people_without_date.destroy
+      respond_to do |format|
+      format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
+      format.json { head :no_content }
+      end
+end
 end
 
   private
@@ -83,9 +86,13 @@ end
     #   @ip = request.remote_ip
     # end
     #
-    #   def set_impression
-    #     @impression = Impression.find(params[:id])
-    #   end
+      # def set_impression
+      #   @impression = Impression.new
+      # end
+
+      def impressions
+        @impressions = Impression.find(params[:id])
+      end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_missing_person
@@ -96,5 +103,6 @@ end
     def missing_person_params
       params.require(:missing_person).permit(:first_name, :last_name, :sex, :location, :island, :height, :weight, :image, :eye_color, :information, :middle_name, :nickname, :date, :longitude, :latitude, :ethnicity, :age, :circumstances)
     end
+
 
 end

@@ -65,6 +65,7 @@ class AdminsController < ApplicationController
         format.html { redirect_to missing_person_path, notice: 'Missing person was successfully created.' }
         format.json { render :show, status: :created, location: @missing_person }
         format.js
+        redirect_to admins_path
 
       else
         format.html { render :new }
@@ -138,11 +139,14 @@ class AdminsController < ApplicationController
       format.js
 
     end
-
+    @missing_people_without_date.destroy
+    respond_to do |format|
+    format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
+    format.json { head :no_content }
+    end
   end
 
   private
-
 
     def fetch_admin
       if @current_user.admin
@@ -158,9 +162,7 @@ class AdminsController < ApplicationController
     def missing_person_params
       params.require(:missing_person).permit(:first_name, :last_name, :sex, :location, :island, :height, :weight, :image, :eye_color, :information, :middle_name, :nickname, :date, :longitude, :latitude, :ethnicity, :age, :circumstances)
     end
-    def set_impression
-      @impression = Impression.find(params[:id])
-    end
+
     def admin_params
       params.fetch(:admin, {})
     end

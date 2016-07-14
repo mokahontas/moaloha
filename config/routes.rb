@@ -7,13 +7,18 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy', :as => 'logout'
 
   get '/social' => 'pages#social'
-  get '/pages/first24' => 'pages#firsthours', :as => 'firsthours'
-  get '/pages/missingperson' => 'pages#missingperson', :as => 'missingperson'
+  get '/first24' => 'pages#firsthours', :as => 'firsthours'
+  get '/missingperson' => 'pages#missingperson', :as => 'missingperson'
+  get '/county' => 'pages#county', :as => 'county'
+  get '/media' => 'pages#media', :as => 'media'
+  get '/sar' => 'pages#sar', :as => 'sar'
+  get '/law_enforcement' => 'pages#law_enforcement', :as => 'law_enforcement'
+  get '/fed' => 'pages#fed', :as => 'fed'
 
-  get '/admins/fixdata' => 'admins#fixdata', :as => 'fixdata'
-  get '/admins/content' => 'admins#all_content', :as => 'all_content'
-  get '/admins/new_mp' => 'admins#new_mp', :as => 'new_mp'
-  post '/admins/new_mp' => 'admins#create'
+  get '/fixdata' => 'admins#fixdata', :as => 'fixdata'
+  get '/content' => 'admins#all_content', :as => 'all_content'
+  get '/new_mp' => 'admins#new_mp', :as => 'new_mp'
+  post '/new_mp' => 'admins#create'
 
   get '/resources' => 'pages#resources'
 
