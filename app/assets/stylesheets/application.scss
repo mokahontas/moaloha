@@ -69,8 +69,9 @@ footer {
   background-color: #fffcf0;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
-  margin: 5px 5px 5px 5px;
-  padding: 5px 5px 5px 5px;
+  margin: auto;
+  display: inline;
+
 }
 .column {
   // border: 3px solid #fffcf0;
@@ -98,7 +99,7 @@ margin: 5px;
   box-sizing: border-box;
   width: 36.7vw;
   height: 50vh;
-  position: fixed;
+  margin: 5px;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.75);
   border: 3px solid #fffcf0;

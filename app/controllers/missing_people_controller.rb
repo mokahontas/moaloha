@@ -4,19 +4,33 @@ class MissingPeopleController < ApplicationController
   # GET /missing_people
   # GET /missing_people.json
   def index
+    @name = params[:name]
+    @sex = params[:sex]
+    @islands = params[:islands]
+
     @missing_people = MissingPerson.where("missing_people.date IS NOT NULL").order(date: :desc).paginate(:page => params[:page], :per_page => 10)
+    # binding.pry
+    if params[:name].present?
+      @missing_people = @missing_people.where('first_name LIKE ? or last_name like ?', "%#{params[:name]}%", "%#{params[:name]}%")
+      # binding.pry
+    end
+    if params[:sex].present?
+      @missing_people = @missing_people.where :sex => params[:sex]
+      # binding.pry
+    end
+    # binding.pry
+    if params[:islands].present?
+      @missing_people = @missing_people.where :island => params[:islands]
+      # binding.pry
+    end
+    # binding.pry
     @hash = Gmaps4rails.build_markers(@missing_people) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
     end
   end
 
-  def search
-    @missing_people = MissingPerson.search(["name LIKE ?","%#{params[:search]}%"])
-  end
 
-  # GET /missing_people/1
-  # GET /missing_people/1.json
   def show
     @missing_person = MissingPerson.find params[:id]
     @hash = Gmaps4rails.build_markers(@missing_person) do |location, marker|
@@ -24,14 +38,9 @@ class MissingPeopleController < ApplicationController
       marker.lng location.longitude
     @prev = MissingPerson.find params[:id].to_i - 1
     @next = MissingPerson.find params[:id].to_i + 1
-     #
-    #  def prev
-    #    @missing_person.where(+= 1)
-    #  end
+
     end
-    # @impression = Impression.new(impression_params)
-    # @impression.create(@ip, :missing_person_id)
-    # @impression.save
+    @impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
 
   end
 
@@ -45,7 +54,6 @@ class MissingPeopleController < ApplicationController
 
   def update
     if @current_user.present? && @current_user.admin == true
-
     respond_to do |format|
       if @missing_person.update(missing_person_params)
         format.html { redirect_to missing_person_path, notice: 'Missing person was successfully updated.' }
@@ -71,13 +79,13 @@ end
 end
 
   private
-  def set_ip
-    @ip = request.remote_ip
-  end
-
-    def set_impression
-      @impression = Impression.find(params[:id])
-    end
+    # def set_ip
+    #   @ip = request.remote_ip
+    # end
+    #
+    #   def set_impression
+    #     @impression = Impression.find(params[:id])
+    #   end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_missing_person

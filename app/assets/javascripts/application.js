@@ -16,3 +16,4 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+// $('#search input').keyup($.get($("#search").attr("action"), $("#search").serialize(), null, 'json')false);

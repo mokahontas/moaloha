@@ -13,11 +13,11 @@ class MissingPerson < ActiveRecord::Base
   #    impression.get_location(request.remote_ip)
 
 
-def self.search(search)
-  if search
-    where(['name like ?', '%#{search}%'])
-  else
-    all
-  end
-end
+# def self.search(search)
+#   if search
+#     where(['name like ?', '%#{search}%'])
+#   else
+#     all
+#   end
+
 end
