@@ -2,7 +2,7 @@
 <div class="row">
   <div class="showinfo">
 
-    <%= link_to 'Prev', missing_person_path(@prev) %>
+    <%= link_to '<', missing_person_path(@prev), class: 'prev' %>
     <%= image_tag(@missing_person.image, class: 'showimage') %>
     <% if  @current_user.present? %>
 <button type="button" name="button">
@@ -26,34 +26,37 @@
 
       </script>
     </div>
-<%= link_to 'Next', missing_person_path(@next) %>
+<%= link_to '>', missing_person_path(@next), class: 'next' %>
 </div>
-<div class="five columns">
-  <strong>Name: </strong>
+<div class="five columns content">
+  <p>Name:
   <%= @missing_person.first_name %>
   <%= @missing_person.last_name %><br />
-    <strong>Middle name: </strong>
+  </p>
+    <p>Middle name:
     <%= @missing_person.middle_name %><br />
-    <strong>Nickname:</strong>
+    Nickname:
     <%= @missing_person.nickname %><br />
-<strong>Sex: </strong>
+    </p>
+<p>Sex:
   <%= @missing_person.sex %><br />
-  <strong>Date last seen: </strong>
+  </p>
+  <p>Date last seen:
   <%= @missing_person.date.strftime("%m/%d/%Y") %><br />
-
-  <strong>Location last seen: </strong>
+</p>
+  <p>Location last seen:
   <%= @missing_person.location %><br />
-
-  <strong>Age last seen: </strong>
+</p>
+  <p>Age last seen:
   <%= @missing_person.age %><br />
-
-  <strong>Island: </strong>
+</p>
+  <p>Island:
   <%= @missing_person.island %><br />
-
+</p>
 </div>
 
 
-<div class="five columns">
+<div class="five columns content">
 
   <strong>Eye color:</strong>
   <%= @missing_person.eye_color %><br />

@@ -5,6 +5,8 @@ class MissingPeopleController < ApplicationController
     @name = params[:name]
     @sex = params[:sex]
     @islands = params[:islands]
+    @first_name = params[:first_name]
+    @last_name = params[:last_name]
 
     @missing_people = MissingPerson.where("missing_people.date IS NOT NULL").order(date: :desc).paginate(:page => params[:page], :per_page => 10)
     if params[:name].present?

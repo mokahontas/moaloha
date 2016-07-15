@@ -80,6 +80,11 @@ button a:visited {
     text-decoration: none;
     opacity: 0.5;
 }
+.prev, .next {
+  font-family: 'Economica', sans-serif;
+  font-size: 70px;
+
+}
 .container {
     // background-color: #ffbbd6;
     border-radius: 5px 5px 5px 5px;
@@ -161,6 +166,7 @@ footer {
 }
 .list {
     list-style-type: none;
+    text-decoration: none;
     background-color: #fffcf0;
     position: relative;
     width: 100%;
