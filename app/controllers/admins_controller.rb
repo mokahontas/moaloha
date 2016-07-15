@@ -19,7 +19,14 @@ class AdminsController < ApplicationController
   # GET /admins/1.json
   def show
   end
-
+  
+  def ipdata
+    @impression = Impressions.all
+    @hash = Gmaps4rails.build_markers(@impression) do |ip_adress, marker|
+      marker.lat ip_adress.latitude
+      marker.lng ip_adress.longitude
+    end
+  end
   # GET /admins/new
   def new
     @admin = Admin.new

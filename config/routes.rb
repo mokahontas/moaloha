@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/content' => 'admins#all_content', :as => 'all_content'
   get '/new_mp' => 'admins#new_mp', :as => 'new_mp'
   post '/new_mp' => 'admins#create'
+  get '/ipdata' => 'admins#ipdata', :as => 'ipdata'
   get '/resources' => 'pages#resources'
 
     resources :users

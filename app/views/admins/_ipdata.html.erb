@@ -1,4 +1,17 @@
 <div class="nine columns content">
+      <div id="map">
+        <script>
+                var mapOptions = {
+                center: new google.maps.LatLng(<%= @impression.latitude %>, <%= @impression.longitude %>)),
+                zoom:7
+                };
 
+                var handler = Gmaps.build('Google');
+                handler.buildMap({ provider: mapOptions, internal: {id: 'map' }}, function(){
+                markers = handler.addMarkers(<%=raw @hash.to_json %>)
+
+                });
+        </script>
+      </div>
 
 </div>
