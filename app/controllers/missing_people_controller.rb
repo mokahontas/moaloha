@@ -7,21 +7,15 @@ class MissingPeopleController < ApplicationController
     @islands = params[:islands]
 
     @missing_people = MissingPerson.where("missing_people.date IS NOT NULL").order(date: :desc).paginate(:page => params[:page], :per_page => 10)
-    # binding.pry
     if params[:name].present?
       @missing_people = @missing_people.where('first_name LIKE ? or last_name like ?', "%#{params[:name]}%", "%#{params[:name]}%")
-      # binding.pry
     end
     if params[:sex].present?
       @missing_people = @missing_people.where :sex => params[:sex]
-      # binding.pry
     end
-    # binding.pry
     if params[:islands].present?
       @missing_people = @missing_people.where :island => params[:islands]
-      # binding.pry
     end
-    # binding.pry
     @hash = Gmaps4rails.build_markers(@missing_people) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
@@ -31,24 +25,40 @@ class MissingPeopleController < ApplicationController
 
   def show
     @missing_person = MissingPerson.find params[:id]
+    Impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
     @hash = Gmaps4rails.build_markers(@missing_person) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
-    @prev = MissingPerson.find params[:id].to_i - 1
-    @next = MissingPerson.find params[:id].to_i + 1
-    if @next == nil
+       if MissingPerson.exists?( id: params[:id].to_i-1)
+         @prev = MissingPerson.find params[:id].to_i - 1
+       else
+         @prev = @missing_person
+       end
+      if MissingPerson.exists?( id: params[:id].to_i+1)
+           @next = MissingPerson.find params[:id].to_i + 1
+       else
+         @next = @missing_person
+       end
+     end
+   end
 
-
-    end
-    @impressions.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
-    # @impressions.save
-  end
 
   def edit
     if @current_user.present? && @current_user.admin == true
       @missing_person = MissingPerson.find params[:id]
-      @prev = MissingPerson.find params[:id].to_i - 1
-      @next = MissingPerson.find params[:id].to_i + 1
+
+      if MissingPerson.exists?( id: params[:id].to_i-1)
+        @prev = MissingPerson.find params[:id].to_i - 1
+      else
+        @prev = @missing_person
+      end
+      if MissingPerson.exists?( id: params[:id].to_i+1)
+            @next = MissingPerson.find params[:id].to_i + 1
+      else
+          @next = @missing_person
+      end
+    else
+      redirect_to root_path
     end
   end
 
@@ -67,18 +77,17 @@ class MissingPeopleController < ApplicationController
 end
   # DELETE /missing_people/1
   # DELETE /missing_people/1.json
-  def destroy
-      @missing_person.destroy
-      respond_to do |format|
-      format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
-      format.json { head :no_content }
-      end
-      @missing_people_without_date.destroy
-      respond_to do |format|
-      format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
-      format.json { head :no_content }
-      end
-end
+def destroy
+  @missing_person = MissingPerson.find params[:id]
+  @missing_person.destroy
+
+  @missing_people_without_date = MissingPerson.find params[:id]
+  @missing_people_without_date.destroy
+
+  respond_to do |format|
+    format.html { redirect_to missing_people_url, notice: 'Missing person was successfully destroyed.' }
+    format.json { head :no_content }
+  end
 end
 
   private
@@ -103,6 +112,4 @@ end
     def missing_person_params
       params.require(:missing_person).permit(:first_name, :last_name, :sex, :location, :island, :height, :weight, :image, :eye_color, :information, :middle_name, :nickname, :date, :longitude, :latitude, :ethnicity, :age, :circumstances)
     end
-
-
 end

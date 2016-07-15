@@ -1,17 +1,9 @@
-<!-- <h1>Editing Missing Person</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @missing_person %> |
-<%= link_to 'Back', missing_people_path %> -->
-
 
 <div class="five colmuns">
-  <%= link_to 'Prev', missing_person_path(@prev) %>
 
   <%= form_for(@missing_person) do |f| %>
   <%= render 'form' %>
+  <%= link_to 'Delete', missing_person_path(@missing_person), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-  <%= link_to 'Next', missing_person_path(@next) %>
 
 </div>
