@@ -25,7 +25,7 @@ class MissingPeopleController < ApplicationController
 
   def show
     @missing_person = MissingPerson.find params[:id]
-    Impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person.id)
+    # Impression.create(ip_address: request.remote_ip, missing_person_id: @missing_person)
     @hash = Gmaps4rails.build_markers(@missing_person) do |location, marker|
       marker.lat location.latitude
       marker.lng location.longitude
