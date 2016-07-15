@@ -57,12 +57,11 @@ a {
   text-decoration: none;
 }
 a:hover {
-    background-color: #ffbbd6;
-    opacity: 0.7;
-    width: 100%;
+    opacity: 0.5;
 }
 button a:link, button a:visited, button a:hover, button a:active,  {
     text-decoration:none;
+    opacity: 0.5;
 }
 
 
