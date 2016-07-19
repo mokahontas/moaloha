@@ -1,16 +1,13 @@
-<p id="notice"><%= notice %>
+<div class="container">
 <div class="row">
   <div class="showinfo">
-
     <%= link_to '<', missing_person_path(@prev), class: 'prev' %>
     <%= image_tag(@missing_person.image, class: 'showimage') %>
     <% if  @current_user.present? %>
-<button type="button" name="button">
-
+    <button type="button" name="button">
     <%= link_to 'Edit', edit_missing_person_path(@missing_person) %>
-
-</button>
-  <% end %>
+    </button>
+    <% end %>
     <div id="map">
       <script>
               var mapOptions = {
@@ -77,14 +74,19 @@
   <strong>Latitude:</strong>
   <%= @missing_person.latitude %><br />
 
-  <strong>Information:</strong>
-  <%= @missing_person.information %><br />
+  <strong>Link:</strong>
+  <%= @missing_person.link %><br />
 
   <strong>Circumstances:</strong>
   <%= @missing_person.circumstances %><br />
 </div>
 <div class="five columns" id="social">
-<iframe src="<%= (@missing_person.link) %>" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <% if @missing_person.link == nil %>
+    <%= image_tag('noimage.png', height: '400', width: '300') %>
+    <% else %>
+    <iframe src="<%= (@missing_person.link) %>" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    <% end %>
+
 </div>
   </div>
 </div>

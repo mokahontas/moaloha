@@ -1,3 +1,4 @@
+
 <div class="twelve columns" id="search">
   <h2>Missing Person Database for Hawaii</h2>
   <%= form_tag missing_people_path, :method => 'get' do %>
@@ -14,6 +15,7 @@
   <%= submit_tag "Search", name: nil %>
   <% end %>
 </div>
+
 <div class="row">
    <div class="one-half column">
      <div class="info" id="search-results">
@@ -26,7 +28,8 @@
        <p>Location last seen: <%= missing_person.location %></p>
        <p><%= missing_person.sex %></p>
        <p><%= missing_person.age %></p>
-       <%= link_to 'Show', missing_person_path(missing_person) %>
+       <button type="button" name="button"><%= link_to 'Show', missing_person_path(missing_person) %></button>
+
 
      </ul>
      </span>
@@ -34,6 +37,7 @@
      <%= will_paginate @missing_people %>
    </div>
 </div>
+
   <div class="one-half column" id="indexmap">
 
 
