@@ -16,12 +16,7 @@ class PagesController < ApplicationController
       format.js
     end
   end
-  def missingperson
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+  
   def county
     respond_to do |format|
       format.html
