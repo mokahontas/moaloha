@@ -16,7 +16,18 @@ class PagesController < ApplicationController
       format.js
     end
   end
-  
+  def firstdays
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def second_week
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
   def county
     respond_to do |format|
       format.html

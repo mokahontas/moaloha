@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="three columns">
+  <div class="three columns" id="bar">
     <button type="button" name="button"><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></button>
-    <button type="button" name="button">First 48hours</button>
-    <button type="button" name="button">Second Week</button>
+    <button type="button" name="button"><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></button>
+    <button type="button" name="button"><%= link_to 'Second Week', second_week_path, :remote => true %></button>
     <button type="button" name="button">First Month</button>
     <button type="button" name="button">Third Month</button>
     <button type="button" name="button">Sixth Month</button>
@@ -13,19 +13,18 @@
   <div id="data_content">
     <div class="nine columns" id=resource_index>
       <div class="container">
-
     <h4>What is this for?</h4>
     <p>
-      Nobdy should have to experience the nightmare of having a loved one go missing, but unfortunately it does happen. This reousrce page was created to give you tips and information on what to do and not to do when a loved one goes missing.
+      Nobdy should have to experience the nightmare of having a loved one go missing, but when it does happen, what do you do? Where do you go for help? This reousrce page was created to give you tips and information on what to do and not to do, as well as provide contact informaiton for help.
     </p>
     <h4>Reporting a Missing Person</h4>
     <p>
-      There are several steps you should take when reporting a missing person.
-      <li> Have the person's full name, birthday, contact info such as phone number and address, and if they have a car what type it is and if it has been located yet. The more information you have on the person to make the police report the better</li>
-      <li> When were they last seen or heard from? Do they have any medical conditions? The police will usually ask these questions to see if there are any psycholigical issues or medical emergencies.</li>
-      <li> What were they last wearing?</li>
-      <li>Any details of where they work or go to school and information of friends associated with frequently, phone numbers help.</li>
-
+      Do not wait to report a person missing!
+      Here are several things to have when you file the report:
+      <li> Have the person's full name(nickname and aliases), birthday, contact info such as phone number and address, and if they have a car what type it is and if it has been located yet. The more information you have on the person to make the police report the better</li>
+      <li> When were they last seen or heard from? Do they have any medical conditions? are on any mediacastions or have any handicaps. The police will usually ask these questions to see if there are any psycholigical issues or medical emergencies.</li>
+      <li> If known what they were wearing last and possesions they might have on them, jewelry, a hair clip. Also any known marks, scars, tattoos and any other identifying characteristics.</li>
+      <li>Any details of where they work or go to school and information of family, friends associated with frequently, phone numbers help.</li>
     </p>
     <h4>Keep Notes</h4>
     <p>
@@ -34,12 +33,12 @@
       <li>Keep a log of everyone you speak to from the moment you file a missing person report. This includes officers, media, friends and family.</li>
       None of these tips are set in stone, but the more information you have the faster the process will be for filing the missing person report.
     </p>
-    <h4>Don't</h4>
+    <h4>DON'T</h4>
     <li>Delay in searching. Time can be of the essence.</li>
     <li>Keep their disappearance a secret, the more you tell, the more people you have looking on your behalf and speedier the results might be. Social Media is greta for this</li>
     <li>Wait - if missing person is vulnerable, notify the police as soon as you think something is wrong.</li>
     <li>Move or touch any of their belongings, don't clean their bedroom or touch their stuff until the police have gone through it.</li>
-    <li>Put your own telephone numbers or address on posters or advertisements, to avoid hoaxes - use the police or missing person(s) numbers.</li>
+    <li>Put your own telephone numbers or address on posters or advertisments, to avoid hoaxes - use the police or missing person hotline numbers.</li>
     <li>Don't ever give up or lose faith. People are good by nature find people you can lean on to give you motviation and who will help you strive forward.</li>
   </div>
 

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/social' => 'pages#social'
   get '/first24' => 'pages#firsthours', :as => 'firsthours'
+  get '/firstdays' => 'pages#firstdays', :as => 'firstdays'
+  get '/second_week' => 'pages#second_week', :as => 'second_week'
   get '/county' => 'pages#county', :as => 'county'
   get '/media' => 'pages#media', :as => 'media'
   get '/sar' => 'pages#sar', :as => 'sar'

@@ -1,5 +1,5 @@
 <div class="row">
-<div class="three columns">
+<div class="three columns" id="bar">
   <h3>Contacts</h3>
   <button type="button" name="button"><%= link_to 'County', county_path, :remote => true %></button>
   <button type="button" name="button"><%= link_to 'Media', media_path, :remote => true %></button>
@@ -10,6 +10,6 @@
 
 <div id="contact_content">
 
-
+<%= render 'county' %>
 </div>
 </div>
