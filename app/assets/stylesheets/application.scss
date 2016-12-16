@@ -15,6 +15,8 @@
 //= require foundation_and_overrides
 
  */
+
+
 /* //  #fffcf0
 //  #dedcee
 //  #a3a1a1
@@ -28,6 +30,7 @@
 // font-family: 'Pacifico', cursive;
 // font-family: 'Kaushan Script', cursive;
 // font-family: 'Courgette', cursive; */
+
 body {
     // background-color: #a3a1a1;
     background-image: image-url('background.jpg');
@@ -35,6 +38,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 a,
 div,
 h1,
@@ -48,6 +52,7 @@ p,
 span {
     font-family: 'Economica', sans-serif;
 }
+
 input,
 label,
 li,
@@ -55,16 +60,18 @@ p,
 span {
     font-size: 20px;
 }
+
 a {
     font-size: 22px;
     text-decoration: none;
 }
+
 .pagination a:hover {
     background-color: #EA9EE5;
 }
+
 .pagination .current {
-      background-color: black;
-  
+    background-color: black;
 }
 
 button a:active,
@@ -74,47 +81,40 @@ button a:visited {
     text-decoration: none;
     opacity: 0.5;
 }
+
 .logo {
     margin-left: 3%;
     margin-right: 5%;
-
 }
+
 .top-bar {
     opacity: 0.9;
     margin-bottom: 20px;
-    
 }
 
 #bar {
-  border: 3px solid #a3a1a1;
-  border-radius: 5px 5px 5px 5px;
-  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
-  background-color: #fffcf0;
-  opacity: 0.7;
-  display: inline;
-  margin: auto;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
-.columns {
-    // border: 3px solid #fffcf0;
-    // border-radius: 5px 5px 5px 5px;
-    margin: 5px;
-    // box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    border: 3px solid #a3a1a1;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    background-color: #fffcf0;
+    opacity: 0.7;
+    display: inline;
+    margin: auto;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 
 #search {
     background-color: #fffcf0;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     padding: 10px;
     font-size: 22px;
     opacity: 0.7;
 }
+
 #search h2 {
     text-align: center;
 }
@@ -124,6 +124,7 @@ button a:visited {
     bottom: 2%;
     right: 0;
 }
+
 #map {
     max-width: 100%;
     box-sizing: border-box;
@@ -131,9 +132,10 @@ button a:visited {
     height: 50vh;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     border: 3px solid #fffcf0;
 }
+
 #showmap {
     height: 500px;
     width: 500px;
@@ -141,16 +143,16 @@ button a:visited {
     box-sizing: border-box;
     margin: 5px;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     border: 3px solid #fffcf0;
-
 }
+
 .indeximage {
     width: 200px;
     height: 225px;
     border-radius: 5px 5px 5px 5px;
     margin: 10px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
 }
 
 .block {
@@ -162,8 +164,8 @@ button a:visited {
     position: relative;
     width: 100%;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
-    padding:  10px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    padding: 10px;
 }
 
 .block p {
@@ -172,27 +174,28 @@ button a:visited {
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
 }
-.pagination a, {
+
+.pagination a,
+{
     display: inline-block;
 }
 
-.prev, .next {
-  font-family: 'Economica', sans-serif;
-  font-size: 70px;
-
+.prev,
+.next {
+    font-family: 'Economica', sans-serif;
+    font-size: 70px;
 }
 
 .showimage {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #fffcf0;
-
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
 }
 
 .contact {
     background-color: #fffcf0;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     margin: 20px;
     padding: auto;
     opacity: 0.9;
@@ -200,6 +203,7 @@ button a:visited {
     list-style-type: none;
     text-align: center;
 }
+
 .content {
     background-color: #fffcf0;
     border-radius: 5px 5px 5px 5px;
@@ -208,22 +212,23 @@ button a:visited {
     padding: inherit;
     display: inline;
 }
+
 #resource_index {
-  background-color: #fffcf0;
-  border-radius: 5px 5px 5px 5px;
-  border: 3px solid #a3a1a1;
-  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
-  margin: auto;
-  margin-left: 20px;
-  padding: 20px;
-  display: inline;
-  opacity: 0.7;
+    background-color: #fffcf0;
+    border-radius: 5px 5px 5px 5px;
+    border: 3px solid #a3a1a1;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    margin: auto;
+    margin-left: 20px;
+    padding: 20px;
+    display: inline;
+    opacity: 0.7;
 }
 
 .county {
     background-color: #fffcf0;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     margin-bottom: 10px;
     padding: 10px;
     border: 3px solid #a3a1a1;
@@ -231,6 +236,7 @@ button a:visited {
     list-style-type: none;
     text-align: center;
 }
+
 iframe {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #ffbbd6;
@@ -251,21 +257,16 @@ iframe {
 #social {
     text-align: center;
     position: relative;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
 }
 
 @media screen and (max-width: 39.9375em) {
-
-#indexmap {
-    display: none;
+    #indexmap {
+        display: none;
+    }
+    .block p {
+    border: 0px;
 }
 }
 
 
-
-// .headerimg {
-//   width: 100%;
-//   height: 20vh;
-//   top: 0;
-//   margin: 0 auto;
-// }
