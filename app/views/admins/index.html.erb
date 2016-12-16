@@ -1,14 +1,19 @@
 
-
-<div class="row">
-  <div class="three columns" id="admin_control">
-    <button type="button" id="all_content"><%= link_to "Index MP", all_content_path, :remote => true %></button>
-    <button type="button" id="new_mp"><%= link_to "New MP", new_mp_path, :remote => true %></button>
-    <button type="button" name="button"><%= link_to 'Bad Data', fixdata_path, :remote => true %></button>
-    <button type="button" name="button">Message Box</button>
-    <button type="button" name="button">Site Data</button>
+  <div class="large-3 columns" id="bar">
+  <ul class="vertical menu" data-drilldown>
+    <li><%= link_to "Index MP", all_content_path, :remote => true %> </li>
+    <li><%= link_to "New MP", new_mp_path, :remote => true %></li>
+    <li><%= link_to 'Bad Data', fixdata_path, :remote => true %></li>
+    <li><a href="#">Mesage Box</a></li>
+    <li><a href="#">Bad Data</a></li>
+      <button type="button" name="button">
+        <%= link_to 'Log Out', logout_path, :method => :delete  %>
+      </button>
   </div>
+  </ul>
+  <div class="large-8 columns" id=resource_index>
   <div id="data_content">
 
   </div>
+
 </div>

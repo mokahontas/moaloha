@@ -2,9 +2,13 @@
   <div class="small-12 columns" id="search">
       <h2>Missing Person Database for Hawaii</h2>
       <%= form_tag missing_people_path, :method => 'get' do %>
-        <h4>Search</h4>
+          <div class="medium-6 columns">
+
           <input type="text" name="name" placeholder= "Search By Name" value= <%= @name %>>
+          </div>
+          <div class="large-12 columns"></div>
           <input type="radio" name="sex" value="Male" <%= @sex == "Male" ? "checked" : ""%>> Male
+
           <input type="radio" name="sex" value="Female" <%= @sex == "Female" ? "checked" : ""%>> Female</br>
           <input type="checkbox" name="islands[]" value="Big Island" <%= @islands == "Big island" ? "checked" : "" %>> Big Island
           <input type="checkbox" name="islands[]" value="Maui" <%= @islands == "Maui" ? "checked" : "" %>> Maui
@@ -12,8 +16,10 @@
           <input type="checkbox" name="islands[]" value="Molokai" <%= @islands == "Molokai" ? "checked" : "" %>> Moloka'i
           <input type="checkbox" name="islands[]" value="Oahu" <%=  @islands == "Oahu" ? "checked" : "" %>> O'ahu
           <input type="checkbox" name="islands[]" value="Kauai" <%= @islands == "Kauai" ? "checked" : "" %>> Kaua'i</br>
-        <%= submit_tag "Search", name: nil %>
+          <%= submit_tag "Search", name: nil %>
       <% end %>
+          </div>
+        
   </div>
   
     <div class="large-6 columns">
@@ -31,8 +37,11 @@
         </ul>
         </span>
       <% end %>
-        <%= will_paginate @missing_people %>
+       
       </div>
+      <span class="paginate">
+       <%= will_paginate @missing_people %>
+       </span>
     </div>
 
   <div id="indexmap">

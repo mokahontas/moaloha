@@ -1,12 +1,34 @@
-  <div class="row">
-  <div class="large-6 columns">
+ 
+<div class="small-1 columns">
+<% if  @current_user.present? %>
+        <button type="button" name="button">
+  <%= link_to '<', missing_person_path(@prev), class: 'prev' %>
+        </button>
+        <% end %>
+</div>
+  <div class="large-4 columns">
+
     <%= image_tag(@missing_person.image, class: 'showimage') %>
-    <%= link_to '<', missing_person_path(@prev), class: 'prev' %>
-    <%= link_to '>', missing_person_path(@next), class: 'next' %>
+    <div id="showmap">
+      <script>
+              var mapOptions = {
+              center: new google.maps.LatLng(<%= @missing_person.latitude %>, <%= @missing_person.longitude %>),
+              zoom: 10
+              };
+
+              var handler = Gmaps.build('Google');
+              handler.buildMap({ provider: mapOptions, internal: {id: 'showmap' }}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>)
+
+              });
+
+      </script>
+    </div>
+    
 
   </div>
     
-  <div class="large-6 columns">
+  <div class="large-5 columns" id="resource_index">
         <p>Name:
         <%= @missing_person.first_name %>
         <%= @missing_person.last_name %><br />
@@ -62,28 +84,26 @@
         </button>
         <% end %>
       </div>
+      <div class="small-1 columns">
+      <% if  @current_user.present? %>
+        <button type="button" name="button">
+    <%= link_to '>', missing_person_path(@next), class: 'next' %>
+        </button>
+        <% end %>
+        
+      </div>
 
-    <div class="small-6 columns" id="social">
+    <div class="small-1 columns">
+</div>
+    <div class="large-4 columns">
+    
+    </div>
+    
+<div class="small-6 columns" id="social">
     <% if @missing_person.link == nil %>
     <%= image_tag('noimage.png', height: '400', width: '300') %>
     <% else %>
     <iframe src="<%= (@missing_person.link) %>" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     <% end %>
 
-    </div>
-    <div class="small-6 columns" id="map">
-      <script>
-              var mapOptions = {
-              center: new google.maps.LatLng(<%= @missing_person.latitude %>, <%= @missing_person.longitude %>),
-              zoom: 10
-              };
-
-              var handler = Gmaps.build('Google');
-              handler.buildMap({ provider: mapOptions, internal: {id: 'map' }}, function(){
-              markers = handler.addMarkers(<%=raw @hash.to_json %>)
-
-              });
-
-      </script>
-    </div>
     </div>

@@ -55,9 +55,29 @@ p,
 span {
     font-size: 20px;
 }
+a {
+    font-size: 22px;
+    text-decoration: none;
+}
+.pagination a:hover {
+    background-color: #EA9EE5;
+}
+.pagination .current {
+      background-color: black;
+  
+}
+
+button a:active,
+button a:hover,
+button a:link,
+button a:visited {
+    text-decoration: none;
+    opacity: 0.5;
+}
 .logo {
     margin-left: 3%;
     margin-right: 5%;
+
 }
 .top-bar {
     opacity: 0.9;
@@ -74,23 +94,9 @@ span {
   display: inline;
   margin: auto;
   margin-left: 20px;
+  margin-bottom: 10px;
 }
 
-a {
-    font-size: 22px;
-    text-decoration: none;
-}
-a:hover {
-    opacity: 0.5;
-}
-
-button a:active,
-button a:hover,
-button a:link,
-button a:visited {
-    text-decoration: none;
-    opacity: 0.7;
-}
 
 .columns {
     // border: 3px solid #fffcf0;
@@ -127,6 +133,17 @@ button a:visited {
     box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
     border: 3px solid #fffcf0;
 }
+#showmap {
+    height: 500px;
+    width: 500px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 5px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
+    border: 3px solid #fffcf0;
+
+}
 .indeximage {
     width: 200px;
     height: 225px;
@@ -153,6 +170,9 @@ button a:visited {
     padding: 10px;
     border-radius: 5px 5px 5px 5px;
     border: 2px solid black;
+}
+.pagination a, {
+    display: inline-block;
 }
 
 .prev, .next {
@@ -198,13 +218,15 @@ button a:visited {
   display: inline;
   opacity: 0.7;
 }
+
 .county {
     background-color: #fffcf0;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
-    margin: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 3px solid #a3a1a1;
     opacity: 0.7;
-    padding: auto;
     list-style-type: none;
     text-align: center;
 }
@@ -231,6 +253,12 @@ iframe {
     box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.75);
 }
 
+@media screen and (max-width: 39.9375em) {
+
+#indexmap {
+    display: none;
+}
+}
 
 
 
