@@ -1,47 +1,42 @@
 
-<div class="twelve columns" id="search">
-  <h2>Missing Person Database for Hawaii</h2>
-  <%= form_tag missing_people_path, :method => 'get' do %>
-  <h4>Search</h4>
-  <input type="text" name="name" placeholder= "Search by Name" value= <%= @name %>>
-  <input type="radio" name="sex" value="Male" <%= @sex == "Male" ? "checked" : ""%>> Male
-  <input type="radio" name="sex" value="Female" <%= @sex == "Female" ? "checked" : ""%>> Female</br>
-  <input type="checkbox" name="islands[]" value="Maui" <%= @islands == "Maui" ? "checked" : "" %>> Maui
-  <input type="checkbox" name="islands[]" value="Oahu" <%=  @islands == "Oahu" ? "checked" : "" %>> O'ahu
-  <input type="checkbox" name="islands[]" value="Big Island" <%= @islands == "Big island" ? "checked" : "" %>> Big Island
-  <input type="checkbox" name="islands[]" value="Lanai" <%= @islands == "Lanai" ? "checked" : "" %>> Lanai
-  <input type="checkbox" name="islands[]" value="Molokai" <%= @islands == "Molokai" ? "checked" : "" %>> Moloka'i
-  <input type="checkbox" name="islands[]" value="Kauai" <%= @islands == "Kauai" ? "checked" : "" %>> Kaua'i</br>
-  <%= submit_tag "Search", name: nil %>
-  <% end %>
-</div>
+  <div class="small-12 columns" id="search">
+      <h2>Missing Person Database for Hawaii</h2>
+      <%= form_tag missing_people_path, :method => 'get' do %>
+        <h4>Search</h4>
+          <input type="text" name="name" placeholder= "Search By Name" value= <%= @name %>>
+          <input type="radio" name="sex" value="Male" <%= @sex == "Male" ? "checked" : ""%>> Male
+          <input type="radio" name="sex" value="Female" <%= @sex == "Female" ? "checked" : ""%>> Female</br>
+          <input type="checkbox" name="islands[]" value="Big Island" <%= @islands == "Big island" ? "checked" : "" %>> Big Island
+          <input type="checkbox" name="islands[]" value="Maui" <%= @islands == "Maui" ? "checked" : "" %>> Maui
+          <input type="checkbox" name="islands[]" value="Lanai" <%= @islands == "Lanai" ? "checked" : "" %>> Lanai
+          <input type="checkbox" name="islands[]" value="Molokai" <%= @islands == "Molokai" ? "checked" : "" %>> Moloka'i
+          <input type="checkbox" name="islands[]" value="Oahu" <%=  @islands == "Oahu" ? "checked" : "" %>> O'ahu
+          <input type="checkbox" name="islands[]" value="Kauai" <%= @islands == "Kauai" ? "checked" : "" %>> Kaua'i</br>
+        <%= submit_tag "Search", name: nil %>
+      <% end %>
+  </div>
+  
+    <div class="large-6 columns">
+       <div id="search-results">
+          <% @missing_people.each do |missing_person| %>
+        <span class="block">
+          <%= image_tag(missing_person.image, class: 'indeximage') %>
+        <ul>
+         <p><%= missing_person.first_name %> <%= missing_person.last_name %></p>
+         <p>Date last seen: <%= missing_person.date.strftime("%m/%d/%Y") %></p>
+         <p>Location last seen: <%= missing_person.location %></p>
+         <p><%= missing_person.sex %></p>
+         <p><%= missing_person.age %></p>
+        <%= link_to 'Show', missing_person_path(missing_person) %>  
+        </ul>
+        </span>
+      <% end %>
+        <%= will_paginate @missing_people %>
+      </div>
+    </div>
 
-<div class="row">
-   <div class="one-half column">
-     <div class="info" id="search-results">
-     <% @missing_people.each do |missing_person| %>
-     <span class="block list">
-     <%= image_tag(missing_person.image, class: 'indeximage') %>
-     <ul>
-       <p> <%= missing_person.first_name %> <%= missing_person.last_name %> </p>
-       <p>Date last seen: <%= missing_person.date.strftime("%m/%d/%Y") %></p>
-       <p>Location last seen: <%= missing_person.location %></p>
-       <p><%= missing_person.sex %></p>
-       <p><%= missing_person.age %></p>
-       <button type="button" name="button"><%= link_to 'Show', missing_person_path(missing_person) %></button>
-
-
-     </ul>
-     </span>
-     <% end %>
-     <%= will_paginate @missing_people %>
-   </div>
-</div>
-
-  <div class="one-half column" id="indexmap">
-
-
-      <div id="map">
+  <div id="indexmap">
+    <div id="map">
         <script>
                 var mapOptions = {
                 center: new google.maps.LatLng(20.8027683, -157.618187),
@@ -56,7 +51,4 @@
 
         </script>
       </div>
-
-
    </div>
- </div>

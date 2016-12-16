@@ -1,14 +1,77 @@
-<div class="container">
-<div class="row">
-  <div class="showinfo">
-    <%= link_to '<', missing_person_path(@prev), class: 'prev' %>
+  <div class="row">
+  <div class="large-6 columns">
     <%= image_tag(@missing_person.image, class: 'showimage') %>
-    <% if  @current_user.present? %>
-    <button type="button" name="button">
-    <%= link_to 'Edit', edit_missing_person_path(@missing_person) %>
-    </button>
+    <%= link_to '<', missing_person_path(@prev), class: 'prev' %>
+    <%= link_to '>', missing_person_path(@next), class: 'next' %>
+
+  </div>
+    
+  <div class="large-6 columns">
+        <p>Name:
+        <%= @missing_person.first_name %>
+        <%= @missing_person.last_name %><br />
+        </p>
+          <p>Middle name:
+          <%= @missing_person.middle_name %><br />
+          Nickname:
+          <%= @missing_person.nickname %><br />
+          </p>
+      <p>Sex:
+        <%= @missing_person.sex %><br />
+        </p>
+        <p>Date last seen:
+        <%= @missing_person.date.strftime("%m/%d/%Y") %><br />
+        </p>
+        <p>Location last seen:
+        <%= @missing_person.location %><br />
+        </p>
+        <p>Age last seen:
+        <%= @missing_person.age %><br />
+        </p>
+        <p>Island:
+        <%= @missing_person.island %><br />
+        </p>
+        <p>Eye color:
+        <%= @missing_person.eye_color %><br />
+        </p>
+
+        <p>Ethnicity:
+        <%= @missing_person.ethnicity %><br />
+        </p>
+        <p>Height:
+        <%= @missing_person.height %><br />
+        </p>
+        <p>Weight:
+        <%= @missing_person.weight %><br />
+        </p>
+        <p>Longitude:
+        <%= @missing_person.longitude %><br />
+        </p>
+        <p>Latitude:
+        <%= @missing_person.latitude %><br />
+        </p>
+        <p>Link:
+        <%= @missing_person.link %><br />
+        </p>
+        <p>Circumstances:
+        <%= @missing_person.circumstances %><br />
+        </p>
+      <% if  @current_user.present? %>
+        <button type="button" name="button">
+        <%= link_to 'Edit', edit_missing_person_path(@missing_person) %>
+        </button>
+        <% end %>
+      </div>
+
+    <div class="small-6 columns" id="social">
+    <% if @missing_person.link == nil %>
+    <%= image_tag('noimage.png', height: '400', width: '300') %>
+    <% else %>
+    <iframe src="<%= (@missing_person.link) %>" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     <% end %>
-    <div id="map">
+
+    </div>
+    <div class="small-6 columns" id="map">
       <script>
               var mapOptions = {
               center: new google.maps.LatLng(<%= @missing_person.latitude %>, <%= @missing_person.longitude %>),
@@ -23,70 +86,4 @@
 
       </script>
     </div>
-<%= link_to '>', missing_person_path(@next), class: 'next' %>
-</div>
-<div class="five columns content">
-  <p>Name:
-  <%= @missing_person.first_name %>
-  <%= @missing_person.last_name %><br />
-  </p>
-    <p>Middle name:
-    <%= @missing_person.middle_name %><br />
-    Nickname:
-    <%= @missing_person.nickname %><br />
-    </p>
-<p>Sex:
-  <%= @missing_person.sex %><br />
-  </p>
-  <p>Date last seen:
-  <%= @missing_person.date.strftime("%m/%d/%Y") %><br />
-</p>
-  <p>Location last seen:
-  <%= @missing_person.location %><br />
-</p>
-  <p>Age last seen:
-  <%= @missing_person.age %><br />
-</p>
-  <p>Island:
-  <%= @missing_person.island %><br />
-</p>
-</div>
-
-
-<div class="five columns content">
-
-  <strong>Eye color:</strong>
-  <%= @missing_person.eye_color %><br />
-
-
-  <strong>Ethnicity:</strong>
-  <%= @missing_person.ethnicity %><br />
-
-  <strong>Height:</strong>
-  <%= @missing_person.height %><br />
-
-  <strong>Weight:</strong>
-  <%= @missing_person.weight %><br />
-
-  <strong>Longitude:</strong>
-  <%= @missing_person.longitude %><br />
-
-  <strong>Latitude:</strong>
-  <%= @missing_person.latitude %><br />
-
-  <strong>Link:</strong>
-  <%= @missing_person.link %><br />
-
-  <strong>Circumstances:</strong>
-  <%= @missing_person.circumstances %><br />
-</div>
-<div class="five columns" id="social">
-    <% if @missing_person.link == nil %>
-    <%= image_tag('noimage.png', height: '400', width: '300') %>
-    <% else %>
-    <iframe src="<%= (@missing_person.link) %>" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-    <% end %>
-
-</div>
-  </div>
-</div>
+    </div>

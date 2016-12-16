@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :impressions
   root 'pages#index'
 
   get '/login' => 'session#new', :as => 'login'

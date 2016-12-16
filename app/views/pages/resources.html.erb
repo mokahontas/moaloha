@@ -1,5 +1,18 @@
-<div class="row">
-  <div class="three columns" id="bar">
+
+  <div class="small-3 columns" id="bar">
+    
+    <ul class="vertical menu" data-drilldown>
+      <li><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></li>
+      <li><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></li>
+      <li><%= link_to 'Second Week', second_week_path, :remote => true %></li>
+      <li><a href="#">First Month</a></li>
+      <li><a href="#">Third Month</a></li>
+      <li><a href="#">Sixth Month</a></li>
+      <li><a href="#">First year</a></li>
+    </ul>
+    
+</div>
+  <!-- <div class="large-3 columns">
     <button type="button" name="button"><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></button>
     <button type="button" name="button"><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></button>
     <button type="button" name="button"><%= link_to 'Second Week', second_week_path, :remote => true %></button>
@@ -8,11 +21,11 @@
     <button type="button" name="button">Sixth Month</button>
     <button type="button" name="button">First Year</button>
     <button type="button" name="button">List of Contacts</button>
-  </div>
+  </div> -->
 
   <div id="data_content">
-    <div class="nine columns" id=resource_index>
-      <div class="container">
+    <div class="medium-8 columns" id=resource_index>
+      <div class="conatiner">
     <h4>What is this for?</h4>
     <p>
       Nobdy should have to experience the nightmare of having a loved one go missing, but when it does happen, what do you do? Where do you go for help? This reousrce page was created to give you tips and information on what to do and not to do, as well as provide contact informaiton for help.
