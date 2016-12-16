@@ -105,7 +105,6 @@ button a:visited {
     text-align: center;
 }
 
-
 #search {
     background-color: #fffcf0;
     border-radius: 5px 5px 5px 5px;
@@ -265,8 +264,13 @@ iframe {
         display: none;
     }
     .block p {
-    border: 0px;
+        border: 0px;
+        margin: 2px;
+        padding: 2px;
+    }
+    .indeximage {
+        width: 150px;
+        height: 185px;
+        margin: 0px;
+    }
 }
-}
-
-
