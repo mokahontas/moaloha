@@ -2,6 +2,7 @@
   <div class="small-12 columns" id="search">
       <h2>Missing Person Database for Hawaii</h2>
       <%= form_tag missing_people_path, :method => 'get' do %>
+      <div class="row">
           <div class="medium-6 columns">
 
           <input type="text" name="name" placeholder= "Search By Name" value= <%= @name %>>
@@ -16,13 +17,16 @@
           <input type="checkbox" name="islands[]" value="Molokai" <%= @islands == "Molokai" ? "checked" : "" %>> Moloka'i
           <input type="checkbox" name="islands[]" value="Oahu" <%=  @islands == "Oahu" ? "checked" : "" %>> O'ahu
           <input type="checkbox" name="islands[]" value="Kauai" <%= @islands == "Kauai" ? "checked" : "" %>> Kaua'i</br>
+          <div class="small-12 columns left">
           <%= submit_tag "Search", name: nil %>
-      <% end %>
           </div>
+      <% end %>
+           </div>
+        </div>
         
   </div>
   
-    <div class="large-6 columns">
+    <div class="medium-6 large-5  columns">
        <div id="search-results">
           <% @missing_people.each do |missing_person| %>
         <span class="block">

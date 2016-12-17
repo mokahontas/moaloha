@@ -89,7 +89,11 @@ button a:visited {
 
 .top-bar {
     opacity: 0.9;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+.title-bar {
+//  #a3a1a1
+    background: #a3a1a1;
 }
 
 #bar {
@@ -156,7 +160,8 @@ button a:visited {
 
 .block {
     display: inline-flex;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     list-style-type: none;
     text-decoration: none;
     background-color: #fffcf0;
@@ -267,6 +272,10 @@ iframe {
         border: 0px;
         margin: 2px;
         padding: 2px;
+    }
+    .block {
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     .indeximage {
         width: 150px;
