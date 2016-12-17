@@ -83,19 +83,27 @@ button a:visited {
 }
 
 .logo {
-    margin-left: 3%;
-    margin-right: 5%;
 }
 
 .top-bar {
     opacity: 0.9;
-    margin-bottom: 5px;
 }
 .title-bar {
 //  #a3a1a1
     background: #a3a1a1;
-}
+    text-align: center;
 
+}
+.menu li a {
+    line-height: 0.8;
+}
+#navlist {
+    list-style: none;
+    text-align: center;
+}
+#navlist li {
+    display: inline-block;
+}
 #bar {
     border: 3px solid #a3a1a1;
     border-radius: 5px 5px 5px 5px;
@@ -224,7 +232,7 @@ button a:visited {
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
     margin: auto;
     margin-left: 20px;
-    padding: 20px;
+    padding: 30px;
     display: inline;
     opacity: 0.7;
 }

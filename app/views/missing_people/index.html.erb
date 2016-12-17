@@ -1,5 +1,5 @@
 
-  <div class="small-12 columns" id="search">
+  <div class="small-12 columns float-center" id="search">
       <h2>Missing Person Database for Hawaii</h2>
       <%= form_tag missing_people_path, :method => 'get' do %>
       <div class="row">
@@ -26,7 +26,7 @@
         
   </div>
   
-    <div class="medium-6 large-5  columns">
+    <div class="medium-6 large-5 columns">
        <div id="search-results">
           <% @missing_people.each do |missing_person| %>
         <span class="block">
