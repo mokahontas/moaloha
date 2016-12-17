@@ -19,4 +19,8 @@
 //= require_tree .
 // $('#search input').keyup($.get($("#search").attr("action"), $("#search").serialize(), null, 'json')false);
 
-$(function(){ $(document).foundation(); });
+
+$(document).on('turbolinks:load', function() {
+    $(function() { $(document).foundation(); });
+});
+

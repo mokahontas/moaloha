@@ -1,23 +1,15 @@
-<div class="small-12 medium-4 large-3 columns" id="contacts-bar">
-    <ul class="vertical menu">
-  <h3>Contacts</h3>
-  <hr>
-  <li><%= link_to 'County', county_path, :remote => true %></li>
-  <li><%= link_to 'Media', media_path, :remote => true %></li>
-  <li><%= link_to 'Search and Rescue', sar_path, :remote => true %></li>
-  <li><%= link_to 'Law Enforcement', law_enforcement_path, :remote => true %></li>
-  <li><%= link_to 'Coast Guard & DLNR', fed_path, :remote => true %></li>
+  
+<div class="large-12 columns" id="bar">
+    <ul class="vertical medium-horizontal menu" id="navlist">
+      <li><%= link_to 'County', county_path, :remote => true %></li>
+      <li><%= link_to 'Media', media_path, :remote => true %></li>
+      <li><%= link_to 'Search and Rescue', sar_path, :remote => true %></li>
+      <li><%= link_to 'Law Enforcement', law_enforcement_path, :remote => true %></li>
+      <li><%= link_to 'Federal Agencies', fed_path, :remote => true %></li>
+    </ul> 
 </div>
-
-<div id="contact_content">
+<div id="contact_content" class="row">
 
 <%= render 'county' %>
 </div>
-</div>
-<!--  <li><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></li>
-      <li><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></li>
-      <li><%= link_to 'Second Week', second_week_path, :remote => true %></li>
-      <li><a href="#">First Month</a></li>
-      <li><a href="#">Third Month</a></li>
-      <li><a href="#">Sixth Month</a></li>
-      <li><a href="#">First year</a></li> -->
+
