@@ -23,8 +23,8 @@
 $(document).on('turbolinks:load', function() {
     $(function() { $(document).foundation(); });
 
-  var change_img_time = 4000,
-      transition_speed = 400;
+  var change_img_time = 8000,
+      transition_speed = 600;
 
   var listItems = $("#slider").children('li'),
       dotItems = $('#dots').children('li'),

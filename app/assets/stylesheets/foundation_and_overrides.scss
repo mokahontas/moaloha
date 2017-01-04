@@ -135,7 +135,6 @@ button a:visited {
     text-align: center;
 }
 #landing {
-    margin: 5px;
     background-color: #333030;
     opacity: 0.7;
     color: white;
@@ -155,15 +154,14 @@ button a:visited {
 /* .orbit-container { height:auto; } */  
 
 .container {
-    margin:  5px;
-    padding:  10px;
+    margin:  5px auto;
+    left: 0;
 }
 
 #slider {
   list-style: none;
-  width: 600px;
   height: 400px;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 #slider img {
@@ -442,12 +440,35 @@ iframe {
         width: 150px;
         height: 185px;
         margin: 0px;
+
     }
     .menu li a {
         font-size: 18px;
     }
     #resource_index {
         padding: 10px;
+    }
+    #landingparagraph {  
+    margin: 0 auto;
+    }
+    #landing p {
+        margin: 2px;
+        margin-bottom: 5px;
+        padding: 0;
+    }
+    .container {
+        padding: 0;
+        margin: 0;
+        left: 0;
+    }
+    #slider {
+        padding:  0;
+        margin: 0;
+        
+    }
+    #slider img {
+        max-width: 350px;
+        max-height: 400px;
     }
 }
 @media screen and (min-width: 64em) {
