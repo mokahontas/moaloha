@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/new_mp' => 'admins#create'
   get '/ipdata' => 'admins#ipdata', :as => 'ipdata'
   get '/resources' => 'pages#resources'
+  get '/about' => 'pages#about'
 
     resources :users
     resources :pages
