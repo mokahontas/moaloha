@@ -1,30 +1,25 @@
   <div class="large-12 columns" id="bar">
     <ul class="vertical medium-horizontal menu" id="navlist">
+
       <li><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></li>
+    <li><%= link_to 'Report a Missing Person', ramp_path, :remote => true %></a></li>
       <li><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></li>
-      <li><%= link_to 'Second Week', second_week_path, :remote => true %></li>
-      <li><a href="#">First Month</a></li>
-      <li><a href="#">Third Month</a></li>
-      <li><a href="#">Sixth Month</a></li>
-      <li><a href="#">First year</a></li>
+      <li><%= link_to 'Second Week', secondweek_path, :remote => true %></li>
+
+      <li><%= link_to 'First Month', firstmonth_path, :remote => true %></li>
+      <li><%= link_to 'Third Month', thirdmonth_path, :remote => true %></a></li>
+      <li><%= link_to 'Sixth Month', sixthmonth_path, :remote => true %></a></li>
+      <li><%= link_to 'First Year', firstyear_path, :remote => true %></a></li>
     </ul>
     
 </div>
-  <!-- <div class="large-3 columns">
-    <button type="button" name="button"><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></button>
-    <button type="button" name="button"><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></button>
-    <button type="button" name="button"><%= link_to 'Second Week', second_week_path, :remote => true %></button>
-    <button type="button" name="button">First Month</button>
-    <button type="button" name="button">Third Month</button>
-    <button type="button" name="button">Sixth Month</button>
-    <button type="button" name="button">First Year</button>
-    <button type="button" name="button">List of Contacts</button>
-  </div> -->
 
   <div id="data_content">
-    <div class="large-12 columns" id=resource_index>
+    <div class="large-12 columns">
       <div class="text-jusify">
-    <h4>What is this for?</h4>
+      <%= render 'ramp' %>
+
+    <!-- <h4>What is this for?</h4>
     <p>
       Nobody should have to experience the nightmare of having a loved one go missing, but when it does happen, what do you do? Where do you go for help? This resource page was created to give you tips and information on what to do and not to do, as well as provide contact information for help.
     </p>
@@ -50,7 +45,7 @@
     <li>Wait - if missing person is vulnerable, notify the police as soon as you think something is wrong.</li>
     <li>Move or touch any of their belongings, don't clean their bedroom or touch their stuff until the police have gone through it.</li>
     <li>Put your own telephone numbers or address on posters or advertisments, to avoid hoaxes - use the police or missing person hotline numbers.</li>
-
+ -->
   </div>
   </div>
   </div>
