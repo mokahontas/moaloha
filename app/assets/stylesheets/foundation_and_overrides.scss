@@ -222,6 +222,9 @@ hr {
 #search h2 {
     text-align: center;
 }
+.fi-torsos-all {
+    font-size: 20px;
+}
 
 #indexmap {
     position: fixed;
@@ -294,6 +297,7 @@ hr {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #fffcf0;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    margin: 0 auto;
 }
 
 .contact {
@@ -327,7 +331,6 @@ hr {
     padding-left: 100px;
     padding-right: 100px;
     display: inline;
-    opacity: 0.8;
 }
 
 .county {
@@ -337,7 +340,7 @@ hr {
     margin-bottom: 10px;
     padding: 10px;
     border: 3px solid #a3a1a1;
-    opacity: 0.8;
+    opacity: 0.9;
     list-style-type: none;
     text-align: center;
 }

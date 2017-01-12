@@ -1,4 +1,8 @@
- 
+ <div class="row">
+ <div class="large-12 colums">
+  <div class="row">
+
+
 <div class="small-1 columns">
 <% if  @current_user.present? %>
         <button type="button" name="button">
@@ -29,53 +33,53 @@
   </div>
     
   <div class="large-5 columns" id="resource_index">
-        <p>Name:
+        <p><b>Name:</b>
         <%= @missing_person.first_name %>
         <%= @missing_person.last_name %><br />
         </p>
-          <p>Middle name:
+          <p><b>Middle name:</b>
           <%= @missing_person.middle_name %><br />
-          Nickname:
+          <b>Nickname:</b>
           <%= @missing_person.nickname %><br />
           </p>
-      <p>Sex:
+      <p><b>Sex:</b>
         <%= @missing_person.sex %><br />
         </p>
-        <p>Date last seen:
+        <p><b>Date last seen:</b>
         <%= @missing_person.date.strftime("%m/%d/%Y") %><br />
         </p>
-        <p>Location last seen:
+        <p><b>Location last seen:</b>
         <%= @missing_person.location %><br />
         </p>
-        <p>Age last seen:
+        <p><b>Age last seen:</b>
         <%= @missing_person.age %><br />
         </p>
-        <p>Island:
+        <p><b>Island:</b>
         <%= @missing_person.island %><br />
         </p>
-        <p>Eye color:
+        <p><b>Eye color:</b>
         <%= @missing_person.eye_color %><br />
         </p>
 
-        <p>Ethnicity:
+        <p><b>Ethnicity:</b>
         <%= @missing_person.ethnicity %><br />
         </p>
-        <p>Height:
+        <p><b>Height:</b>
         <%= @missing_person.height %><br />
         </p>
-        <p>Weight:
+        <p><b>Weight:</b>
         <%= @missing_person.weight %><br />
         </p>
-        <p>Longitude:
+        <p><b>Longitude:</b>
         <%= @missing_person.longitude %><br />
         </p>
-        <p>Latitude:
+        <p><b>Latitude:</b>
         <%= @missing_person.latitude %><br />
         </p>
-        <p>Link:
+        <p><b>Link:</b>
         <%= @missing_person.link %><br />
         </p>
-        <p>Circumstances:
+        <p><b>Circumstances:</b>
         <%= @missing_person.circumstances %><br />
         </p>
       <% if  @current_user.present? %>
@@ -84,6 +88,7 @@
         </button>
         <% end %>
       </div>
+
       <div class="small-1 columns">
       <% if  @current_user.present? %>
         <button type="button" name="button">
@@ -92,18 +97,16 @@
         <% end %>
         
       </div>
-
-    <div class="small-1 columns">
-</div>
-    <div class="large-4 columns">
     
+    <div class="small-6 columns" id="social">
+      <% if @missing_person.link == nil %>
+      <%= image_tag('noimage.png', height: '400', width: '300') %>
+      <% else %>
+      <iframe src="<%= (@missing_person.link) %>" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      <% end %>
+
     </div>
-    
-<div class="small-6 columns" id="social">
-    <% if @missing_person.link == nil %>
-    <%= image_tag('noimage.png', height: '400', width: '300') %>
-    <% else %>
-    <iframe src="<%= (@missing_person.link) %>" width="340" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-    <% end %>
 
+   
+    </div>
     </div>
