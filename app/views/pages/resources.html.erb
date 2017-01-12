@@ -1,9 +1,12 @@
   <div class="large-12 columns" id="bar">
-    <ul class="vertical medium-horizontal menu" id="navlist">
+    <ul class="vertical medium-horizontal dropdown menu" data-dropdown-menu id="navlist">
 
-      <li><%= link_to 'First 24 Hours', firsthours_path, :remote => true %></li>
-    <li><%= link_to 'Report a Missing Person', ramp_path, :remote => true %></a></li>
-      <li><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></li>
+      <li><%= link_to 'First 24 Hours', firsthours_path, :remote => true %>
+        <ul class="menu">
+      <li><%= link_to 'Report a Missing Person', ramp_path, :remote => true %></a></li>
+    </ul>
+      </li>
+          <li><%= link_to 'First 48 Hours', firstdays_path, :remote => true %></li>
       <li><%= link_to 'Second Week', secondweek_path, :remote => true %></li>
 
       <li><%= link_to 'First Month', firstmonth_path, :remote => true %></li>
