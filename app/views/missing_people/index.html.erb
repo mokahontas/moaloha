@@ -26,11 +26,11 @@
         
   </div>
   
-    <div class="medium-6 large-5 large-offset-1 columns">
+    <div class="small-12 medium-6 large-4 large-offset-1 columns">
        <div id="search-results">
           <% @missing_people.each do |missing_person| %>
         <span class="block">
-          <%= image_tag(missing_person.image, class: 'indeximage') %>
+          <%= image_tag(missing_person.image, class: 'float-center indeximage') %>
         <ul>
          <p><%= missing_person.first_name %> <%= missing_person.last_name %></p>
          <p>Date last seen: <%= missing_person.date.strftime("%m/%d/%Y") %></p>

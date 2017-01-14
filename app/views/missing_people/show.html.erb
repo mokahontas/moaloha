@@ -1,6 +1,6 @@
- <div class="row">
- <div class="large-12 colums">
-  <div class="row">
+<div class="large-12 columns" id=resource_landing>
+      <div class="container">
+  <div class="row align-center">
 
 
 <div class="small-1 columns">
@@ -10,10 +10,21 @@
         </button>
         <% end %>
 </div>
-  <div class="large-4 columns">
+  <div class="small-12  medium-6 large-5 columns" id="showinfo">
+  <h1 class="showname">
+        <%= @missing_person.first_name %>
+        <%= @missing_person.last_name %>
+    </h1>
 
-    <%= image_tag(@missing_person.image, class: 'showimage') %>
-    <div id="showmap">
+
+    <%= image_tag(@missing_person.image, class: "float-center showimage") %>
+   
+    
+
+  </div>
+    <div class="small-12  medium-6 large-6 columns" id="showinfo">
+
+       <div id="showmap" class="float-center showimage">
       <script>
               var mapOptions = {
               center: new google.maps.LatLng(<%= @missing_person.latitude %>, <%= @missing_person.longitude %>),
@@ -28,67 +39,69 @@
 
       </script>
     </div>
-    
-
   </div>
-    
-  <div class="large-5 columns" id="resource_index">
-        <p><b>Name:</b>
+  <div class="small-12 medium-6 large-11 columns" id="showinfo">
+  <div class="row align-center">
+  <div class="small-12 medium-3 large-4 columns">
+        <li><b>Name:</b>
         <%= @missing_person.first_name %>
         <%= @missing_person.last_name %><br />
-        </p>
-          <p><b>Middle name:</b>
+        </li>
+          <li><b>Middle name:</b>
           <%= @missing_person.middle_name %><br />
           <b>Nickname:</b>
           <%= @missing_person.nickname %><br />
-          </p>
-      <p><b>Sex:</b>
+          </li>
+      <li><b>Sex:</b>
         <%= @missing_person.sex %><br />
-        </p>
-        <p><b>Date last seen:</b>
+        </li>
+        <li><b>Date last seen:</b>
         <%= @missing_person.date.strftime("%m/%d/%Y") %><br />
-        </p>
-        <p><b>Location last seen:</b>
+        </li>
+        <li><b>Location last seen:</b>
         <%= @missing_person.location %><br />
-        </p>
-        <p><b>Age last seen:</b>
+        </li>
+        <li><b>Age last seen:</b>
         <%= @missing_person.age %><br />
-        </p>
-        <p><b>Island:</b>
+        </li>
+        <li><b>Island:</b>
         <%= @missing_person.island %><br />
-        </p>
-        <p><b>Eye color:</b>
+        </li>
+        <li><b>Eye color:</b>
         <%= @missing_person.eye_color %><br />
-        </p>
-
-        <p><b>Ethnicity:</b>
+        </li>
+</div>
+<div class="small-12 medium-3 large-6 columns">
+        <li><b>Ethnicity:</b>
         <%= @missing_person.ethnicity %><br />
-        </p>
-        <p><b>Height:</b>
+        </li>
+        <li><b>Height:</b>
         <%= @missing_person.height %><br />
-        </p>
-        <p><b>Weight:</b>
+        </li>
+        <li><b>Weight:</b>
         <%= @missing_person.weight %><br />
-        </p>
-        <p><b>Longitude:</b>
+        </li>
+        <li><b>Longitude:</b>
         <%= @missing_person.longitude %><br />
-        </p>
-        <p><b>Latitude:</b>
+        </li>
+        <li><b>Latitude:</b>
         <%= @missing_person.latitude %><br />
-        </p>
-        <p><b>Link:</b>
+        </li>
+        <li><i class="fi-social-facebook"></i>
         <%= @missing_person.link %><br />
-        </p>
-        <p><b>Circumstances:</b>
+        </li>
+        <li><b>Circumstances:</b>
         <%= @missing_person.circumstances %><br />
-        </p>
+        </li>
       <% if  @current_user.present? %>
         <button type="button" name="button">
         <%= link_to 'Edit', edit_missing_person_path(@missing_person) %>
         </button>
         <% end %>
+        </div>
+        </div>
       </div>
-
+        
       <div class="small-1 columns">
       <% if  @current_user.present? %>
         <button type="button" name="button">

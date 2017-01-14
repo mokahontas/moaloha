@@ -247,12 +247,13 @@ hr {
     width: 500px;
     max-width: 100%;
     box-sizing: border-box;
-    margin: 5px;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.75);
     border: 3px solid #fffcf0;
 }
-
+.showname {
+    text-align: center;
+}
 .indeximage {
     width: 200px;
     height: 225px;
@@ -271,7 +272,7 @@ hr {
     position: relative;
     width: 100%;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 2px rgba(0.75, 0.75, 0.75, 0.75);
     padding: 10px;
 }
 
@@ -279,6 +280,7 @@ hr {
     margin: 10px;
     padding: 10px;
     border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px 0 rgba(0.75, 0.75, 0.75, 0.75);
     border: 2px solid black;
 }
 
@@ -340,6 +342,23 @@ hr {
     padding-right: 100px;
     display: inline;
     
+}
+
+#showinfo {
+    background-color: #fffcf0;
+    border-radius: 5px 5px 5px 5px;
+    border: 3px solid #a3a1a1;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    display: inline;
+    list-style-type: none;
+    text-decoration: none;
+    display: inline-block;
+    opacity: 0.9;
 }
 
 
