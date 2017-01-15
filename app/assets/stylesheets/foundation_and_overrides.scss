@@ -335,6 +335,9 @@ hr {
     display: inline;
     opacity: 0.9;
 }
+.infographic {
+
+}
 #resource_landing {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -509,6 +512,14 @@ iframe {
         max-width: 350px;
         max-height: 400px;
     }
+    #resource_landing {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: inline;
+    
+}
 }
 @media screen and (min-width: 64em) {
     .card {
